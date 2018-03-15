@@ -1,0 +1,96 @@
+html {
+  background: url(../img/world-map-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body{
+  font: 15px/2 Arial, Helvetica, sans-serif;
+  padding:0;
+  margin:0;
+}
+
+.container{
+  width:85%
+  margin:auto;
+  overflow: hidden;
+}
+
+header ul{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  background: rgba(0, 0, 0, 0.7);
+  padding-top:0px;
+  min-height: 70px;
+  border-bottom: black 5px solid;
+  border-top: black 5px solid;
+}
+
+header a{
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+
+
+header li{
+  float:left;
+  display:inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding{
+  float:left;
+}
+
+header #branding h1{
+  margin-left: 10px;
+  color: #ffffff;
+}
+
+header nav{
+  float:right;
+  margin-top: 35px;
+}
+
+header a:hover{
+  color:#cccccc;
+  font-weight: bold;
+}
+
+ body #homeintro h2{
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-top: 100px;
+  color: lightgrey;
+  font-size: 20px;
+}
+
+body #about-title{
+ background: rgba(0, 0, 0, 0.5);
+ margin-top: 50px;
+ text-align: left;
+ padding-left: 120px;
+ font: Arial, Helvetica;
+ color: lightgrey;
+ font-size: 15px;
+}
+
+body #about-para{
+ background: rgba(0, 0, 0, 0.5);
+ margin-top: -20px;
+ padding-top: 20px;
+ text-align: left;
+ padding-left: 200px;
+ font: Arial, Helvetica;
+ color: lightgrey;
+ font-size: 15px;
+}
+}
