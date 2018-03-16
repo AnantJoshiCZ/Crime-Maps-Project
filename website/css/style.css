@@ -93,4 +93,24 @@ body #about-para{
  color: lightgrey;
  font-size: 15px;
 }
+
+body #maps-title{
+ background: rgba(0, 0, 0, 0.5);
+ margin-top: 50px;
+ text-align: left;
+ padding-left: 120px;
+ font: Arial, Helvetica;
+ color: lightgrey;
+ font-size: 15px;
+}
+
+body #maps-links h4{
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: -20px;
+  padding-top: 20px;
+  text-align: left;
+  padding-left: 200px;
+  font: Arial, Helvetica;
+  color: lightgrey;
+  font-size: 15px;
 }
