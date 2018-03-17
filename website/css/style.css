@@ -110,12 +110,72 @@ body #maps-links{
   padding-top: 20px;
   text-align: left;
   padding-left: 200px;
+  padding-right: 200px;
   font: Arial, Helvetica;
   color: lightgrey;
   font-size: 15px;
 }
 
+body #maps-links ul{
+  list-style-type: none;
+}
+
 body #maps-links a{
+
   color: white;
-  
+
+}
+
+body #maps-links-2{
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 0px;
+  padding-top: 20px;
+  text-align: left;
+  padding-left: 200px;
+  padding-right: 200px;
+  font: Arial, Helvetica;
+  color: lightgrey;
+  font-size: 15px;
+}
+
+body #maps-links-2 ul{
+  list-style-type: none;
+}
+
+body #maps-links-2 a{
+
+  color: white;
+
+}
+
+body #assault-links{
+  display: inline-block;
+  float:left;
+}
+
+body #sex-violence-links{
+  display: inline-block;
+  float:center;
+  padding-left: 280px;
+}
+
+body #burglary-links{
+  display: inline-block;
+  float:right;
+}
+
+body #homicide-links{
+  display: inline-block;
+  float:left;
+}
+
+body #theft-links{
+  display: inline-block;
+  float:center;
+  padding-left: 280px;
+}
+
+body #kidnap-links{
+  display: inline-block;
+  float:right;
 }
