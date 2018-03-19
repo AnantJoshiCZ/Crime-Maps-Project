@@ -8,10 +8,7 @@ library(googleVis)
 library(googleway)
 library(plotGoogleMaps)
 library(readxl)
-#library(xlsx)
-#library(XLConnectJars)
-#library(XLConnect)
- ######################################### MAKE HOVERVAR
+
 
 ##################################################################################################################
 ########################################## Importing the database into R
@@ -19,15 +16,15 @@ library(readxl)
 
 
 #WorldSexViolenceRate <- read_excel("C:/User/Anant Joshi/Documents/PublicationReports2017_latest.xlsx", sheet = 1, col_names = TRUE)
-WorldAssaultRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/Assault.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/Theft.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/Burglary.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldDomBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/DomBurglary.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldKidnapRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/kidnapping.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldSexViolenceRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/TotalSexualCrime.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldVehicleTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/VehicleTheft.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldRobberyRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/robbery.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldHomicideRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/Homicide.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldAssaultRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Assault.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldHomicideRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Homicide.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Burglary.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldDomBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/DomBurglary.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldKidnapRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/kidnapping.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldSexViolenceRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/TotalSexualCrime.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldVehicleTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/VehicleTheft.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldRobberyRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/robbery.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Theft.csv", header = TRUE, stringsAsFactors = FALSE)
 
 ##################################################################################################################
 ########################################## Removing extra data (Data Cleaning)
@@ -35,8 +32,8 @@ WorldHomicideRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/Homicide
 WorldAssaultRate$Region <- NULL
 WorldAssaultRate$Sub.region <- NULL
 
-WorldTheftRate$Region <- NULL
-WorldTheftRate$Sub.region <- NULL
+WorldHomicideRate$Region <- NULL
+WorldHomicideRate$Sub.region <- NULL
 
 WorldBurglaryRate$Region <- NULL
 WorldBurglaryRate$Sub.region <- NULL
@@ -56,8 +53,8 @@ WorldVehicleTheftRate$Sub.region <- NULL
 WorldRobberyRate$Region <- NULL
 WorldRobberyRate$Sub.region <- NULL
 
-WorldHomicideRate$Region <- NULL
-WorldHomicideRate$Sub.region <- NULL
+WorldTheftRate$Region <- NULL
+WorldTheftRate$Sub.region <- NULL
 
 ##################################################################################################
 ################################### Data Manipulation
@@ -80,17 +77,17 @@ WorldAssaultRate$Country.territory <- sub("Bolivia Plurinational State of", "Bol
 
 
 
-WorldTheftRate$Country.territory <- sub("Kosovo under UNSCR 1244", "Kosovo", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("Macao Special Administrative Region of China", "Macao", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("State of Palestine", "Palestine", WorldTheftRate$Country.territory)
-#WorldTheftRate$Country.territory <- sub("United Kingdom", "", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("(England and Wales)", "", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("(Northern Ireland)", "Northern Ireland", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("(Scotland)", "Scotland", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("\\(", "", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub(")", "", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("Hong Kong Special Administrative Region of China", "Hong Kong", WorldTheftRate$Country.territory)
-WorldTheftRate$Country.territory <- sub("Bolivia Plurinational State of", "Bolivia", WorldTheftRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("Kosovo under UNSCR 1244", "Kosovo", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("Macao Special Administrative Region of China", "Macao", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("State of Palestine", "Palestine", WorldHomicideRate$Country.territory)
+#WorldHomicideRate$Country.territory <- sub("United Kingdom", "", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("(England and Wales)", "", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("(Northern Ireland)", "Northern Ireland", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("(Scotland)", "Scotland", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("\\(", "", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub(")", "", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("Hong Kong Special Administrative Region of China", "Hong Kong", WorldHomicideRate$Country.territory)
+WorldHomicideRate$Country.territory <- sub("Bolivia Plurinational State of", "Bolivia", WorldHomicideRate$Country.territory)
 
 
 WorldBurglaryRate$Country.territory <- sub("Kosovo under UNSCR 1244", "Kosovo", WorldBurglaryRate$Country.territory)
@@ -171,20 +168,18 @@ WorldRobberyRate$Country.territory <- sub("Hong Kong Special Administrative Regi
 WorldRobberyRate$Country.territory <- sub("Bolivia Plurinational State of", "Bolivia", WorldRobberyRate$Country.territory)
 
 
-WorldHomicideRate$Country.territory <- sub("Kosovo under UNSCR 1244", "Kosovo", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("Macao Special Administrative Region of China", "Macao", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("State of Palestine", "Palestine", WorldHomicideRate$Country.territory)
-#WorldHomicideRate$Country.territory <- sub("United Kingdom", "", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("(England and Wales)", "", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("(Northern Ireland)", "Northern Ireland", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("(Scotland)", "Scotland", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("\\(", "", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub(")", "", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("Hong Kong Special Administrative Region of China", "Hong Kong", WorldHomicideRate$Country.territory)
-WorldHomicideRate$Country.territory <- sub("Bolivia Plurinational State of", "Bolivia", WorldHomicideRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("Kosovo under UNSCR 1244", "Kosovo", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("Macao Special Administrative Region of China", "Macao", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("State of Palestine", "Palestine", WorldTheftRate$Country.territory)
+#WorldTheftRate$Country.territory <- sub("United Kingdom", "", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("(England and Wales)", "", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("(Northern Ireland)", "Northern Ireland", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("(Scotland)", "Scotland", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("\\(", "", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub(")", "", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("Hong Kong Special Administrative Region of China", "Hong Kong", WorldTheftRate$Country.territory)
+WorldTheftRate$Country.territory <- sub("Bolivia Plurinational State of", "Bolivia", WorldTheftRate$Country.territory)
 
-
-string <- "Total No. of Crime Instances "
 
 ########################################################################################
 
@@ -203,7 +198,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2008` <- WorldAssaultRate$X2008.1
 string <- "Total Assault Crimes in 2008"
 MapCountriesGvis$`Total Assault in 2008`<- WorldAssaultRate$X2008
-MapCountriesGvis$`Total Assault in 2008` <-paste(string, MapCountriesGvis$`Total Assault in 2008`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2008`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2008`))
 AGeo2008 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -228,7 +223,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2009` <- WorldAssaultRate$X2009.1
 string <- "Total Assault Crimes in 2009"
 MapCountriesGvis$`Total Assault in 2009`<- WorldAssaultRate$X2009
-MapCountriesGvis$`Total Assault in 2009` <-paste(string, MapCountriesGvis$`Total Assault in 2009`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2009`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2009`))
 AGeo2009 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -253,7 +248,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2010` <- WorldAssaultRate$X2010.1
 string <- "Total Assault Crimes in 2010"
 MapCountriesGvis$`Total Assault in 2010`<- WorldAssaultRate$X2010
-MapCountriesGvis$`Total Assault in 2010` <-paste(string, MapCountriesGvis$`Total Assault in 2010`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2010`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2010`))
 AGeo2010 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -278,7 +273,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2011` <- WorldAssaultRate$X2011.1
 string <- "Total Assault Crimes in 2011"
 MapCountriesGvis$`Total Assault in 2011`<- WorldAssaultRate$X2011
-MapCountriesGvis$`Total Assault in 2011` <-paste(string, MapCountriesGvis$`Total Assault in 2011`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2011`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2011`))
 AGeo2011 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -303,7 +298,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2012` <- WorldAssaultRate$X2012.1
 string <- "Total Assault Crimes in 2012"
 MapCountriesGvis$`Total Assault in 2012`<- WorldAssaultRate$X2012
-MapCountriesGvis$`Total Assault in 2012` <-paste(string, MapCountriesGvis$`Total Assault in 2012`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2012`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2012`))
 AGeo2012 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -328,7 +323,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2013` <- WorldAssaultRate$X2013.1
 string <- "Total Assault Crimes in 2013"
 MapCountriesGvis$`Total Assault in 2013`<- WorldAssaultRate$X2013
-MapCountriesGvis$`Total Assault in 2013` <-paste(string, MapCountriesGvis$`Total Assault in 2013`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2013`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2013`))
 AGeo2013 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -353,7 +348,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2014` <- WorldAssaultRate$X2014.1
 string <- "Total Assault Crimes in 2014"
 MapCountriesGvis$`Total Assault in 2014`<- WorldAssaultRate$X2014
-MapCountriesGvis$`Total Assault in 2014` <-paste(string, MapCountriesGvis$`Total Assault in 2014`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2014`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2014`))
 AGeo2014 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -378,7 +373,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldAssaultRate.Count
 MapCountriesGvis$`Per Capita Assault in 2015` <- WorldAssaultRate$X2015.1
 string <- "Total Assault Crimes in 2015"
 MapCountriesGvis$`Total Assault in 2015`<- WorldAssaultRate$X2015
-MapCountriesGvis$`Total Assault in 2015` <-paste(string, MapCountriesGvis$`Total Assault in 2015`,  sep = "=" )
+MapCountriesGvis$`Total Assault in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Assault in 2015`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Assault in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Assault in 2015`))
 AGeo2015 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -406,7 +401,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2008` <- WorldSexViolenceRate$X2008.1
 MapCountriesGvis$`Total SexViolence in 2008`<- WorldSexViolenceRate$X2008
 string <- "Total SexViolence Crimes in 2008"
-MapCountriesGvis$`Total SexViolence in 2008` <-paste(string, MapCountriesGvis$`Total SexViolence in 2008`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2008`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2008`))
 SGeo2008 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -431,7 +426,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2009` <- WorldSexViolenceRate$X2009.1
 MapCountriesGvis$`Total SexViolence in 2009`<- WorldSexViolenceRate$X2009
 string <- "Total SexViolence Crimes in 2009"
-MapCountriesGvis$`Total SexViolence in 2009` <-paste(string, MapCountriesGvis$`Total SexViolence in 2009`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2009`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2009`))
 SGeo2009 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -456,7 +451,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2010` <- WorldSexViolenceRate$X2010.1
 MapCountriesGvis$`Total SexViolence in 2010`<- WorldSexViolenceRate$X2010
 string <- "Total SexViolence Crimes in 2010"
-MapCountriesGvis$`Total SexViolence in 2010` <-paste(string, MapCountriesGvis$`Total SexViolence in 2010`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2010`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2010`))
 SGeo2010 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -481,7 +476,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2011` <- WorldSexViolenceRate$X2011.1
 MapCountriesGvis$`Total SexViolence in 2011`<- WorldSexViolenceRate$X2011
 string <- "Total SexViolence Crimes in 2011"
-MapCountriesGvis$`Total SexViolence in 2011` <-paste(string, MapCountriesGvis$`Total SexViolence in 2011`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2011`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2011`))
 SGeo2011 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -506,7 +501,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2012` <- WorldSexViolenceRate$X2012.1
 MapCountriesGvis$`Total SexViolence in 2012`<- WorldSexViolenceRate$X2012
 string <- "Total SexViolence Crimes in 2012"
-MapCountriesGvis$`Total SexViolence in 2012` <-paste(string, MapCountriesGvis$`Total SexViolence in 2012`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2012`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2012`))
 SGeo2012 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -531,7 +526,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2013` <- WorldSexViolenceRate$X2013.1
 MapCountriesGvis$`Total SexViolence in 2013`<- WorldSexViolenceRate$X2013
 string <- "Total SexViolence Crimes in 2013"
-MapCountriesGvis$`Total SexViolence in 2013` <-paste(string, MapCountriesGvis$`Total SexViolence in 2013`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2013`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2013`))
 SGeo2013 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -556,7 +551,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2014` <- WorldSexViolenceRate$X2014.1
 MapCountriesGvis$`Total SexViolence in 2014`<- WorldSexViolenceRate$X2014
 string <- "Total SexViolence Crimes in 2014"
-MapCountriesGvis$`Total SexViolence in 2014` <-paste(string, MapCountriesGvis$`Total SexViolence in 2014`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2014`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2014`))
 SGeo2014 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -581,7 +576,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.C
 MapCountriesGvis$`Per Capita SexViolence in 2015` <- WorldSexViolenceRate$X2015.1
 MapCountriesGvis$`Total SexViolence in 2015`<- WorldSexViolenceRate$X2015
 string <- "Total SexViolence Crimes in 2015"
-MapCountriesGvis$`Total SexViolence in 2015` <-paste(string, MapCountriesGvis$`Total SexViolence in 2015`,  sep = "=" )
+MapCountriesGvis$`Total SexViolence in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2015`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita SexViolence in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2015`))
 SGeo2015 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -610,7 +605,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2008` <- WorldBurglaryRate$X2008.1
 MapCountriesGvis$`Total Burglary in 2008`<- WorldBurglaryRate$X2008
 string <- "Total Burglary Crimes in 2008"
-MapCountriesGvis$`Total Burglary in 2008` <-paste(string, MapCountriesGvis$`Total Burglary in 2008`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2008`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2008`))
 BGeo2008 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -635,7 +630,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2009` <- WorldBurglaryRate$X2009.1
 MapCountriesGvis$`Total Burglary in 2009`<- WorldBurglaryRate$X2009
 string <- "Total Burglary Crimes in 2009"
-MapCountriesGvis$`Total Burglary in 2009` <-paste(string, MapCountriesGvis$`Total Burglary in 2009`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2009`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2009`))
 BGeo2009 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -660,7 +655,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2010` <- WorldBurglaryRate$X2010.1
 MapCountriesGvis$`Total Burglary in 2010`<- WorldBurglaryRate$X2010
 string <- "Total Burglary Crimes in 2010"
-MapCountriesGvis$`Total Burglary in 2010` <-paste(string, MapCountriesGvis$`Total Burglary in 2010`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2010`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2010`))
 BGeo2010 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -685,7 +680,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2011` <- WorldBurglaryRate$X2011.1
 MapCountriesGvis$`Total Burglary in 2011`<- WorldBurglaryRate$X2011
 string <- "Total Burglary Crimes in 2011"
-MapCountriesGvis$`Total Burglary in 2011` <-paste(string, MapCountriesGvis$`Total Burglary in 2011`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2011`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2011`))
 BGeo2011 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -710,7 +705,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2012` <- WorldBurglaryRate$X2012.1
 MapCountriesGvis$`Total Burglary in 2012`<- WorldBurglaryRate$X2012
 string <- "Total Burglary Crimes in 2012"
-MapCountriesGvis$`Total Burglary in 2012` <-paste(string, MapCountriesGvis$`Total Burglary in 2012`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2012`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2012`))
 BGeo2012 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -736,7 +731,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2013` <- WorldBurglaryRate$X2013.1
 MapCountriesGvis$`Total Burglary in 2013`<- WorldBurglaryRate$X2013
 string <- "Total Burglary Crimes in 2013"
-MapCountriesGvis$`Total Burglary in 2013` <-paste(string, MapCountriesGvis$`Total Burglary in 2013`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2013`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2013`))
 BGeo2013 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -762,7 +757,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2014` <- WorldBurglaryRate$X2014.1
 MapCountriesGvis$`Total Burglary in 2014`<- WorldBurglaryRate$X2014
 string <- "Total Burglary Crimes in 2014"
-MapCountriesGvis$`Total Burglary in 2014` <-paste(string, MapCountriesGvis$`Total Burglary in 2014`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2014`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2014`))
 BGeo2014 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -787,7 +782,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Coun
 MapCountriesGvis$`Per Capita Burglary in 2015` <- WorldBurglaryRate$X2015.1
 MapCountriesGvis$`Total Burglary in 2015`<- WorldBurglaryRate$X2015
 string <- "Total Burglary Crimes in 2015"
-MapCountriesGvis$`Total Burglary in 2015` <-paste(string, MapCountriesGvis$`Total Burglary in 2015`,  sep = "=" )
+MapCountriesGvis$`Total Burglary in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Burglary in 2015`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Burglary in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Burglary in 2015`))
 BGeo2015 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -816,7 +811,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2008` <- WorldKidnapRate$X2008.1
 MapCountriesGvis$`Total Kidnap in 2008`<- WorldKidnapRate$X2008
 string <- "Total Kidnap Crimes in 2008 "
-MapCountriesGvis$`Total Kidnap in 2008` <-paste(string, MapCountriesGvis$`Total Kidnap in 2008`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2008`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2008`))
 KGeo2008 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -841,7 +836,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2009` <- WorldKidnapRate$X2009.1
 MapCountriesGvis$`Total Kidnap in 2009`<- WorldKidnapRate$X2009
 string <- "Total Kidnap Crimes in 2009 "
-MapCountriesGvis$`Total Kidnap in 2009` <-paste(string, MapCountriesGvis$`Total Kidnap in 2009`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2009`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2009`))
 KGeo2009 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -866,7 +861,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2010` <- WorldKidnapRate$X2010.1
 MapCountriesGvis$`Total Kidnap in 2010`<- WorldKidnapRate$X2010
 string <- "Total Kidnap Crimes in 2010 "
-MapCountriesGvis$`Total Kidnap in 2010` <-paste(string, MapCountriesGvis$`Total Kidnap in 2010`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2010`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2010`))
 KGeo2010 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -891,7 +886,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2011` <- WorldKidnapRate$X2011.1
 MapCountriesGvis$`Total Kidnap in 2011`<- WorldKidnapRate$X2011
 string <- "Total Kidnap Crimes in 2011 "
-MapCountriesGvis$`Total Kidnap in 2011` <-paste(string, MapCountriesGvis$`Total Kidnap in 2011`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2011`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2011`))
 KGeo2011 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -916,7 +911,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2012` <- WorldKidnapRate$X2012.1
 MapCountriesGvis$`Total Kidnap in 2012`<- WorldKidnapRate$X2012
 string <- "Total Kidnap Crimes in 2012 "
-MapCountriesGvis$`Total Kidnap in 2012` <-paste(string, MapCountriesGvis$`Total Kidnap in 2012`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2012`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2012`))
 KGeo2012 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -942,7 +937,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2013` <- WorldKidnapRate$X2013.1
 MapCountriesGvis$`Total Kidnap in 2013`<- WorldKidnapRate$X2013
 string <- "Total Kidnap Crimes in 2013 "
-MapCountriesGvis$`Total Kidnap in 2013` <-paste(string, MapCountriesGvis$`Total Kidnap in 2013`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2013`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2013`))
 KGeo2013 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -969,7 +964,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2014` <- WorldKidnapRate$X2014.1
 MapCountriesGvis$`Total Kidnap in 2014`<- WorldKidnapRate$X2014
 string <- "Total Kidnap Crimes in 2014 "
-MapCountriesGvis$`Total Kidnap in 2014` <-paste(string, MapCountriesGvis$`Total Kidnap in 2014`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2014`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2014`))
 KGeo2014 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -994,7 +989,7 @@ colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Countr
 MapCountriesGvis$`Per Capita Kidnap in 2015` <- WorldKidnapRate$X2015.1
 MapCountriesGvis$`Total Kidnap in 2015`<- WorldKidnapRate$X2015
 string <- "Total Kidnap Crimes in 2015 "
-MapCountriesGvis$`Total Kidnap in 2015` <-paste(string, MapCountriesGvis$`Total Kidnap in 2015`,  sep = "=" )
+MapCountriesGvis$`Total Kidnap in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Kidnap in 2015`,  sep = "="), sep = "|")
 MapCountriesGvis$`Per Capita Kidnap in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2015`))
 KGeo2015 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
@@ -1018,101 +1013,1032 @@ print(KGeo2015, file="KGeo2015.html")
 #################################################################################################################
 ########################################### Homicide Crime Maps
 
-
-
-#################################################################################################################
-MapCountriesGvis <- data.frame(WorldBurglaryRate$Country.territory)
-colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldBurglaryRate.Country.territory'] <- 'Country'
-MapCountriesGvis$`Per Capita Burglary in 2010` <- WorldBurglaryRate$X2010.1
-MapCountriesGvis$`Per Capita SexViolence in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2013`))
-BGeo2010 <- gvisGeoChart(MapCountriesGvis, 
-                         locationvar = "Country" , 
-                         colorvar = 'Per Capita Burglary in 2010', 
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 1000],
-                                      colors:[\'green', \'black']}"
-                                      , backgroundColor = "white"
-                                      , datalessRegionColor = "lightgrey"
-                                      , defaultColor = "lightgrey"
-                                      , domain = 'IN'
-                                      #                                 , region = 154
-                                      , enableRegionInteractivity = TRUE
-                         ))
-plot(BGeo2010)
-print(BGeo2010, file="BGeo2010.html")
-
-MapCountriesGvis <- data.frame(WorldKidnapRate$Country.territory)
-colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldKidnapRate.Country.territory'] <- 'Country'
-MapCountriesGvis$`Per Capita Kidnap in 2010` <- WorldKidnapRate$X2010.1
-MapCountriesGvis$`Per Capita Kidnap in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Kidnap in 2010`))
-KGeo2010 <- gvisGeoChart(MapCountriesGvis, 
-                         locationvar = "Country" , 
-                         colorvar = 'Per Capita Kidnap in 2010', 
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 20],
-                                      colors:[\'blue', \'black']}"
-                                      , backgroundColor = "white"
-                                      , datalessRegionColor = "lightgrey"
-                                      , defaultColor = "lightgrey"
-                                      , domain = 'IN'
-                                      #                                 , region = 154
-                                      , enableRegionInteractivity = TRUE
-                         ))
-plot(KGeo2010)
-print(KGeo2010, file="KGeo2010.html")
-
 MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
 colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
-MapCountriesGvis$`Per Capita Homicide in 2010` <- WorldHomicideRate$X2010.1
-MapCountriesGvis$`Per Capita Homicide in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2010`))
-MapCountriesGvis <- na.omit(MapCountriesGvis)
-HGeo2010 <- gvisGeoChart(MapCountriesGvis, 
+MapCountriesGvis$`Per Capita Homicide in 2008` <- WorldHomicideRate$X2008.1
+MapCountriesGvis$`Total Homicide in 2008`<- WorldHomicideRate$X2008
+string <- "Total Homicide Crimes in 2008 "
+MapCountriesGvis$`Total Homicide in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2008`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2008`))
+HGeo2008 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
-                         colorvar = 'Per Capita Homicide in 2010', 
+                         colorvar = 'Per Capita Homicide in 2008',
+                         hovervar = 'Total Homicide in 2008' ,
                          options=list(width='1280',
                                       height = '720',
                                       gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 85],
+                                      colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
                                       , defaultColor = "lightgrey"
                                       , domain = 'IN'
                                       #                                 , region = 154
-                                      , enableRegionInteractivity = TRUE
                          ))
-plot(HGeo2010)
-print(HGeo2010, file="HGeo2010.html")
+plot(HGeo2008)
+print(HGeo2008, file="HGeo2008.html")
 
-MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
-colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
-MapCountriesGvis$`Per Capita Theft in 2010` <- WorldTheftRate$X2010.1
-MapCountriesGvis$`Total Theft in 2010`<- WorldTheftRate$X2010
-MapCountriesGvis$`Total Theft in 2010` <-paste(string, MapCountriesGvis$`Total Theft in 2010`,  sep = "=" )
-MapCountriesGvis$`Per Capita Theft in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2010`))
-TGeo2010 <- gvisGeoChart(MapCountriesGvis, 
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Homicide in 2009` <- WorldHomicideRate$X2009.1
+MapCountriesGvis$`Total Homicide in 2009`<- WorldHomicideRate$X2009
+string <- "Total Homicide Crimes in 2009 "
+MapCountriesGvis$`Total Homicide in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2009`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2009`))
+HGeo2009 <- gvisGeoChart(MapCountriesGvis, 
                          locationvar = "Country" , 
-                         colorvar = 'Per Capita Theft in 2010', 
-                         hovervar = 'Total Theft in 2010' ,
+                         colorvar = 'Per Capita Homicide in 2009',
+                         hovervar = 'Total Homicide in 2009' ,
                          options=list(width='1280',
                                       height = '720',
                                       gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 5000],
-                                      colors:[\'pink', \'black']}"
+                                      colorAxis="{values:[1, 110],
+                                      colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
                                       , defaultColor = "lightgrey"
                                       , domain = 'IN'
                                       #                                 , region = 154
-                                      , enableRegionInteractivity = TRUE
+                         ))
+plot(HGeo2009)
+print(HGeo2009, file="HGeo2009.html")
+
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Homicide in 2010` <- WorldHomicideRate$X2010.1
+MapCountriesGvis$`Total Homicide in 2010`<- WorldHomicideRate$X2010
+string <- "Total Homicide Crimes in 2010 "
+MapCountriesGvis$`Total Homicide in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2010`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2010`))
+HGeo2010 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Homicide in 2010',
+                         hovervar = 'Total Homicide in 2010' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 110],
+                                      colors:[\'brown', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(HGeo2010)
+print(HGeo2010, file="HGeo2010.html")
+
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Homicide in 2011` <- WorldHomicideRate$X2011.1
+MapCountriesGvis$`Total Homicide in 2011`<- WorldHomicideRate$X2011
+string <- "Total Homicide Crimes in 2011 "
+MapCountriesGvis$`Total Homicide in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2011`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2011`))
+HGeo2011 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Homicide in 2011',
+                         hovervar = 'Total Homicide in 2011' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 110],
+                                      colors:[\'brown', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(HGeo2011)
+print(HGeo2011, file="HGeo2011.html")
+
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Homicide in 2012` <- WorldHomicideRate$X2012.1
+MapCountriesGvis$`Total Homicide in 2012`<- WorldHomicideRate$X2012
+string <- "Total Homicide Crimes in 2012 "
+MapCountriesGvis$`Total Homicide in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2012`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2012`))
+HGeo2012 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Homicide in 2012',
+                         hovervar = 'Total Homicide in 2012' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 110],
+                                      colors:[\'brown', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(HGeo2012)
+print(HGeo2012, file="HGeo2012.html")
+
+
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Homicide in 2013` <- WorldHomicideRate$X2013.1
+MapCountriesGvis$`Total Homicide in 2013`<- WorldHomicideRate$X2013
+string <- "Total Homicide Crimes in 2013 "
+MapCountriesGvis$`Total Homicide in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2013`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2013`))
+HGeo2013 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Homicide in 2013',
+                         hovervar = 'Total Homicide in 2013' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 110],
+                                      colors:[\'brown', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(HGeo2013)
+print(HGeo2013, file="HGeo2013.html")
+
+
+
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Homicide in 2014` <- WorldHomicideRate$X2014.1
+MapCountriesGvis$`Total Homicide in 2014`<- WorldHomicideRate$X2014
+string <- "Total Homicide Crimes in 2014 "
+MapCountriesGvis$`Total Homicide in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2014`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2014`))
+HGeo2014 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Homicide in 2014',
+                         hovervar = 'Total Homicide in 2014' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 110],
+                                      colors:[\'brown', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(HGeo2014)
+print(HGeo2014, file="HGeo2014.html")
+
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Homicide in 2015` <- WorldHomicideRate$X2015.1
+MapCountriesGvis$`Total Homicide in 2015`<- WorldHomicideRate$X2015
+string <- "Total Homicide Crimes in 2015 "
+MapCountriesGvis$`Total Homicide in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Homicide in 2015`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Homicide in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Homicide in 2015`))
+HGeo2015 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Homicide in 2015',
+                         hovervar = 'Total Homicide in 2015' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 110],
+                                      colors:[\'brown', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(HGeo2015)
+print(HGeo2015, file="HGeo2015.html")
+
+#################################################################################################################
+########################################### Theft Crime Maps
+
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2008` <- WorldTheftRate$X2008.1
+MapCountriesGvis$`Total Theft in 2008`<- WorldTheftRate$X2008
+string <- "Total Theft Crimes in 2008 "
+MapCountriesGvis$`Total Theft in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2008`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2008`))
+TGeo2008 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2008',
+                         hovervar = 'Total Theft in 2008' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(TGeo2008)
+print(TGeo2008, file="TGeo2008.html")
+
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2009` <- WorldTheftRate$X2009.1
+MapCountriesGvis$`Total Theft in 2009`<- WorldTheftRate$X2009
+string <- "Total Theft Crimes in 2009 "
+MapCountriesGvis$`Total Theft in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2009`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2009`))
+TGeo2009 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2009',
+                         hovervar = 'Total Theft in 2009' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(TGeo2009)
+print(TGeo2009, file="TGeo2009.html")
+
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2010` <- WorldTheftRate$X2010.1
+MapCountriesGvis$`Total Theft in 2010`<- WorldTheftRate$X2010
+string <- "Total Theft Crimes in 2010 "
+MapCountriesGvis$`Total Theft in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2010`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2010`))
+TGeo2010 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2010',
+                         hovervar = 'Total Theft in 2010' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
                          ))
 plot(TGeo2010)
 print(TGeo2010, file="TGeo2010.html")
 
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2011` <- WorldTheftRate$X2011.1
+MapCountriesGvis$`Total Theft in 2011`<- WorldTheftRate$X2011
+string <- "Total Theft Crimes in 2011 "
+MapCountriesGvis$`Total Theft in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2011`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2011`))
+TGeo2011 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2011',
+                         hovervar = 'Total Theft in 2011' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(TGeo2011)
+print(TGeo2011, file="TGeo2011.html")
+
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2012` <- WorldTheftRate$X2012.1
+MapCountriesGvis$`Total Theft in 2012`<- WorldTheftRate$X2012
+string <- "Total Theft Crimes in 2012 "
+MapCountriesGvis$`Total Theft in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2012`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2012`))
+TGeo2012 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2012',
+                         hovervar = 'Total Theft in 2012' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(TGeo2012)
+print(TGeo2012, file="TGeo2012.html")
+
+
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2013` <- WorldTheftRate$X2013.1
+MapCountriesGvis$`Total Theft in 2013`<- WorldTheftRate$X2013
+string <- "Total Theft Crimes in 2013 "
+MapCountriesGvis$`Total Theft in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2013`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2013`))
+TGeo2013 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2013',
+                         hovervar = 'Total Theft in 2013' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(TGeo2013)
+print(TGeo2013, file="TGeo2013.html")
+
+
+
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2014` <- WorldTheftRate$X2014.1
+MapCountriesGvis$`Total Theft in 2014`<- WorldTheftRate$X2014
+string <- "Total Theft Crimes in 2014 "
+MapCountriesGvis$`Total Theft in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2014`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2014`))
+TGeo2014 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2014',
+                         hovervar = 'Total Theft in 2014' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(TGeo2014)
+print(TGeo2014, file="TGeo2014.html")
+
+MapCountriesGvis <- data.frame(WorldTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Theft in 2015` <- WorldTheftRate$X2015.1
+MapCountriesGvis$`Total Theft in 2015`<- WorldTheftRate$X2015
+string <- "Total Theft Crimes in 2015 "
+MapCountriesGvis$`Total Theft in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Theft in 2015`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Theft in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Theft in 2015`))
+TGeo2015 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Theft in 2015',
+                         hovervar = 'Total Theft in 2015' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 5000],
+                                      colors:[\'indigo', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(TGeo2015)
+print(TGeo2015, file="TGeo2015.html")
+
+#################################################################################################################
+#################################################################################################################
+########################################### VehicleTheft Crime Maps
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2008` <- WorldVehicleTheftRate$X2008.1
+MapCountriesGvis$`Total VehicleTheft in 2008`<- WorldVehicleTheftRate$X2008
+string <- "Total VehicleTheft Crimes in 2008 "
+MapCountriesGvis$`Total VehicleTheft in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2008`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2008`))
+VTGeo2008 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2008',
+                         hovervar = 'Total VehicleTheft in 2008' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2008)
+print(VTGeo2008, file="VTGeo2008.html")
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2009` <- WorldVehicleTheftRate$X2009.1
+MapCountriesGvis$`Total VehicleTheft in 2009`<- WorldVehicleTheftRate$X2009
+string <- "Total VehicleTheft Crimes in 2009 "
+MapCountriesGvis$`Total VehicleTheft in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2009`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2009`))
+VTGeo2009 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2009',
+                         hovervar = 'Total VehicleTheft in 2009' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2009)
+print(VTGeo2009, file="VTGeo2009.html")
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2010` <- WorldVehicleTheftRate$X2010.1
+MapCountriesGvis$`Total VehicleTheft in 2010`<- WorldVehicleTheftRate$X2010
+string <- "Total VehicleTheft Crimes in 2010 "
+MapCountriesGvis$`Total VehicleTheft in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2010`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2010`))
+VTGeo2010 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2010',
+                         hovervar = 'Total VehicleTheft in 2010' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2010)
+print(VTGeo2010, file="VTGeo2010.html")
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2011` <- WorldVehicleTheftRate$X2011.1
+MapCountriesGvis$`Total VehicleTheft in 2011`<- WorldVehicleTheftRate$X2011
+string <- "Total VehicleTheft Crimes in 2011 "
+MapCountriesGvis$`Total VehicleTheft in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2011`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2011`))
+VTGeo2011 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2011',
+                         hovervar = 'Total VehicleTheft in 2011' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2011)
+print(VTGeo2011, file="VTGeo2011.html")
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2012` <- WorldVehicleTheftRate$X2012.1
+MapCountriesGvis$`Total VehicleTheft in 2012`<- WorldVehicleTheftRate$X2012
+string <- "Total VehicleTheft Crimes in 2012 "
+MapCountriesGvis$`Total VehicleTheft in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2012`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2012`))
+VTGeo2012 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2012',
+                         hovervar = 'Total VehicleTheft in 2012' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2012)
+print(VTGeo2012, file="VTGeo2012.html")
+
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2013` <- WorldVehicleTheftRate$X2013.1
+MapCountriesGvis$`Total VehicleTheft in 2013`<- WorldVehicleTheftRate$X2013
+string <- "Total VehicleTheft Crimes in 2013 "
+MapCountriesGvis$`Total VehicleTheft in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2013`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2013`))
+VTGeo2013 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2013',
+                         hovervar = 'Total VehicleTheft in 2013' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2013)
+print(VTGeo2013, file="VTGeo2013.html")
+
+
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2014` <- WorldVehicleTheftRate$X2014.1
+MapCountriesGvis$`Total VehicleTheft in 2014`<- WorldVehicleTheftRate$X2014
+string <- "Total VehicleTheft Crimes in 2014 "
+MapCountriesGvis$`Total VehicleTheft in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2014`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2014`))
+VTGeo2014 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2014',
+                         hovervar = 'Total VehicleTheft in 2014' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2014)
+print(VTGeo2014, file="VTGeo2014.html")
+
+MapCountriesGvis <- data.frame(WorldVehicleTheftRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldVehicleTheftRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita VehicleTheft in 2015` <- WorldVehicleTheftRate$X2015.1
+MapCountriesGvis$`Total VehicleTheft in 2015`<- WorldVehicleTheftRate$X2015
+string <- "Total VehicleTheft Crimes in 2015 "
+MapCountriesGvis$`Total VehicleTheft in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total VehicleTheft in 2015`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita VehicleTheft in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita VehicleTheft in 2015`))
+VTGeo2015 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita VehicleTheft in 2015',
+                         hovervar = 'Total VehicleTheft in 2015' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1500],
+                                      colors:[\'yellow', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(VTGeo2015)
+print(VTGeo2015, file="VTGeo2015.html")
+
+#################################################################################################################
+########################################### Robbery Crime Maps
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2008` <- WorldRobberyRate$X2008.1
+MapCountriesGvis$`Total Robbery in 2008`<- WorldRobberyRate$X2008
+string <- "Total Robbery Crimes in 2008 "
+MapCountriesGvis$`Total Robbery in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2008`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2008`))
+RGeo2008 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2008',
+                         hovervar = 'Total Robbery in 2008' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2008)
+print(RGeo2008, file="RGeo2008.html")
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2009` <- WorldRobberyRate$X2009.1
+MapCountriesGvis$`Total Robbery in 2009`<- WorldRobberyRate$X2009
+string <- "Total Robbery Crimes in 2009 "
+MapCountriesGvis$`Total Robbery in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2009`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2009`))
+RGeo2009 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2009',
+                         hovervar = 'Total Robbery in 2009' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2009)
+print(RGeo2009, file="RGeo2009.html")
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2010` <- WorldRobberyRate$X2010.1
+MapCountriesGvis$`Total Robbery in 2010`<- WorldRobberyRate$X2010
+string <- "Total Robbery Crimes in 2010 "
+MapCountriesGvis$`Total Robbery in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2010`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2010`))
+RGeo2010 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2010',
+                         hovervar = 'Total Robbery in 2010' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2010)
+print(RGeo2010, file="RGeo2010.html")
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2011` <- WorldRobberyRate$X2011.1
+MapCountriesGvis$`Total Robbery in 2011`<- WorldRobberyRate$X2011
+string <- "Total Robbery Crimes in 2011 "
+MapCountriesGvis$`Total Robbery in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2011`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2011`))
+RGeo2011 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2011',
+                         hovervar = 'Total Robbery in 2011' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2011)
+print(RGeo2011, file="RGeo2011.html")
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2012` <- WorldRobberyRate$X2012.1
+MapCountriesGvis$`Total Robbery in 2012`<- WorldRobberyRate$X2012
+string <- "Total Robbery Crimes in 2012 "
+MapCountriesGvis$`Total Robbery in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2012`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2012`))
+RGeo2012 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2012',
+                         hovervar = 'Total Robbery in 2012' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2012)
+print(RGeo2012, file="RGeo2012.html")
+
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2013` <- WorldRobberyRate$X2013.1
+MapCountriesGvis$`Total Robbery in 2013`<- WorldRobberyRate$X2013
+string <- "Total Robbery Crimes in 2013 "
+MapCountriesGvis$`Total Robbery in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2013`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2013`))
+RGeo2013 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2013',
+                         hovervar = 'Total Robbery in 2013' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2013)
+print(RGeo2013, file="RGeo2013.html")
+
+
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2014` <- WorldRobberyRate$X2014.1
+MapCountriesGvis$`Total Robbery in 2014`<- WorldRobberyRate$X2014
+string <- "Total Robbery Crimes in 2014 "
+MapCountriesGvis$`Total Robbery in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2014`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2014`))
+RGeo2014 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2014',
+                         hovervar = 'Total Robbery in 2014' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2014)
+print(RGeo2014, file="RGeo2014.html")
+
+MapCountriesGvis <- data.frame(WorldRobberyRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldRobberyRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita Robbery in 2015` <- WorldRobberyRate$X2015.1
+MapCountriesGvis$`Total Robbery in 2015`<- WorldRobberyRate$X2015
+string <- "Total Robbery Crimes in 2015 "
+MapCountriesGvis$`Total Robbery in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total Robbery in 2015`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita Robbery in 2015` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita Robbery in 2015`))
+RGeo2015 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita Robbery in 2015',
+                         hovervar = 'Total Robbery in 2015' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1200],
+                                      colors:[\'cyan', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(RGeo2015)
+print(RGeo2015, file="RGeo2015.html")
+
+#################################################################################################################
+########################################### DomBurglary Crime Maps
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2008` <- WorldDomBurglaryRate$X2008.1
+MapCountriesGvis$`Total DomBurglary in 2008`<- WorldDomBurglaryRate$X2008
+string <- "Total DomBurglary Crimes in 2008 "
+MapCountriesGvis$`Total DomBurglary in 2008` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2008`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita DomBurglary in 2008` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita DomBurglary in 2008`))
+DBGeo2008 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2008',
+                         hovervar = 'Total DomBurglary in 2008' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2008)
+print(DBGeo2008, file="DBGeo2008.html")
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2009` <- WorldDomBurglaryRate$X2009.1
+MapCountriesGvis$`Total DomBurglary in 2009`<- WorldDomBurglaryRate$X2009
+string <- "Total DomBurglary Crimes in 2009 "
+MapCountriesGvis$`Total DomBurglary in 2009` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2009`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita DomBurglary in 2009` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita DomBurglary in 2009`))
+DBGeo2009 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2009',
+                         hovervar = 'Total DomBurglary in 2009' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2009)
+print(DBGeo2009, file="DBGeo2009.html")
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2010` <- WorldDomBurglaryRate$X2010.1
+MapCountriesGvis$`Total DomBurglary in 2010`<- WorldDomBurglaryRate$X2010
+string <- "Total DomBurglary Crimes in 2010 "
+MapCountriesGvis$`Total DomBurglary in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2010`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita DomBurglary in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita DomBurglary in 2010`))
+DBGeo2010 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2010',
+                         hovervar = 'Total DomBurglary in 2010' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2010)
+print(DBGeo2010, file="DBGeo2010.html")
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2011` <- WorldDomBurglaryRate$X2011.1
+MapCountriesGvis$`Total DomBurglary in 2011`<- WorldDomBurglaryRate$X2011
+string <- "Total DomBurglary Crimes in 2011 "
+MapCountriesGvis$`Total DomBurglary in 2011` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2011`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita DomBurglary in 2011` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita DomBurglary in 2011`))
+DBGeo2011 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2011',
+                         hovervar = 'Total DomBurglary in 2011' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2011)
+print(DBGeo2011, file="DBGeo2011.html")
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2012` <- WorldDomBurglaryRate$X2012.1
+MapCountriesGvis$`Total DomBurglary in 2012`<- WorldDomBurglaryRate$X2012
+string <- "Total DomBurglary Crimes in 2012 "
+MapCountriesGvis$`Total DomBurglary in 2012` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2012`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita DomBurglary in 2012` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita DomBurglary in 2012`))
+DBGeo2012 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2012',
+                         hovervar = 'Total DomBurglary in 2012' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2012)
+print(DBGeo2012, file="DBGeo2012.html")
+
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2013` <- WorldDomBurglaryRate$X2013.1
+MapCountriesGvis$`Total DomBurglary in 2013`<- WorldDomBurglaryRate$X2013
+string <- "Total DomBurglary Crimes in 2013 "
+MapCountriesGvis$`Total DomBurglary in 2013` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2013`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita DomBurglary in 2013` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita DomBurglary in 2013`))
+DBGeo2013 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2013',
+                         hovervar = 'Total DomBurglary in 2013' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2013)
+print(DBGeo2013, file="DBGeo2013.html")
+
+
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2014` <- WorldDomBurglaryRate$X2014.1
+MapCountriesGvis$`Total DomBurglary in 2014`<- WorldDomBurglaryRate$X2014
+string <- "Total DomBurglary Crimes in 2014 "
+MapCountriesGvis$`Total DomBurglary in 2014` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2014`,  sep = "="), sep = "|")
+MapCountriesGvis$`Per Capita DomBurglary in 2014` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita DomBurglary in 2014`))
+DBGeo2014 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2014',
+                         hovervar = 'Total DomBurglary in 2014' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2014)
+print(DBGeo2014, file="DBGeo2014.html")
+
+MapCountriesGvis <- data.frame(WorldDomBurglaryRate$Country.territory)
+colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldDomBurglaryRate.Country.territory'] <- 'Country'
+MapCountriesGvis$`Per Capita DomBurglary in 2015` <- WorldDomBurglaryRate$X2015.1
+MapCountriesGvis$`Total DomBurglary in 2015`<- WorldDomBurglaryRate$X2015
+string <- "Total DomBurglary Crimes in 2015 "
+MapCountriesGvis$`Total DomBurglary in 2015` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total DomBurglary in 2015`,  sep = "="), sep = "|")
+DBGeo2015 <- gvisGeoChart(MapCountriesGvis, 
+                         locationvar = "Country" , 
+                         colorvar = 'Per Capita DomBurglary in 2015',
+                         hovervar = 'Total DomBurglary in 2015' ,
+                         options=list(width='1280',
+                                      height = '720',
+                                      gvis.editor = TRUE,
+                                      colorAxis="{values:[1, 1250],
+                                      colors:[\'magenta', \'black']}"
+                                      , backgroundColor = "white"
+                                      , datalessRegionColor = "lightgrey"
+                                      , defaultColor = "lightgrey"
+                                      , domain = 'IN'
+                                      #                                 , region = 154
+                         ))
+plot(DBGeo2015)
+print(DBGeo2015, file="DBGeo2015.html")
 ########################################################################################
 
 #for(i in 1:nrow(origAddress))
@@ -1124,7 +2050,6 @@ print(TGeo2010, file="TGeo2010.html")
 #}
 
 ########################################################################################
-
 
 
 ########################################################################################
