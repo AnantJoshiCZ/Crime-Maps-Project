@@ -71,6 +71,8 @@ header a:hover{
   margin-top: 100px;
   color: lightgrey;
   font-size: 20px;
+  border-top: black 5px solid;
+  border-bottom: black 5px solid;
 }
 
 body #about-title{
@@ -81,6 +83,7 @@ body #about-title{
  font: Arial, Helvetica;
  color: lightgrey;
  font-size: 15px;
+ border-top: black 5px solid;
 }
 
 body #about-para{
@@ -89,9 +92,19 @@ body #about-para{
  padding-top: 20px;
  text-align: left;
  padding-left: 200px;
+ padding-right: 200px;
  font: Arial, Helvetica;
  color: lightgrey;
  font-size: 15px;
+ border-bottom: black 5px solid;
+}
+
+body #about-para h4{
+  display: inline;
+}
+
+body #about-para a{
+  color: white;
 }
 
 body #maps-title{
@@ -102,6 +115,7 @@ body #maps-title{
  font: Arial, Helvetica;
  color: lightgrey;
  font-size: 15px;
+ border-top: black 5px solid;
 }
 
 body #maps-links{
@@ -138,6 +152,19 @@ body #maps-links-2{
   font-size: 15px;
 }
 
+body #maps-links-3{
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 0px;
+  padding-top: 20px;
+  text-align: left;
+  padding-left: 200px;
+  padding-right: 200px;
+  font: Arial, Helvetica;
+  color: lightgrey;
+  font-size: 15px;
+  border-bottom: black 5px solid;
+}
+
 body #maps-links-2 ul{
   list-style-type: none;
 }
@@ -148,10 +175,21 @@ body #maps-links-2 a{
 
 }
 
+body #maps-links-3 ul{
+  list-style-type: none;
+}
+
+body #maps-links-3 a{
+
+  color: white;
+
+}
+
 body #assault-links{
   display: inline-block;
   float:left;
 }
+
 
 body #sex-violence-links{
   display: inline-block;
@@ -175,7 +213,21 @@ body #theft-links{
   padding-left: 280px;
 }
 
+body #vehicle-theft-links{
+  display: inline-block;
+  float:right;
+}
+
 body #kidnap-links{
   display: inline-block;
   float:right;
+}
+body #robbery-links{
+  display: inline-block;
+  float:left;
+}
+body #domestic-burglary-links{
+  display: inline-block;
+  float:center;
+  padding-left: 250px
 }
