@@ -22,9 +22,12 @@ body {
 
 
 <!-- jsHeader -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd9pkIydsd6rvOcy4bFUUYW0m7X3z1-uo&callback=initMap"
+type="text/javascript"></script>
+<!-- Google JSKey AIzaSyAd9pkIydsd6rvOcy4bFUUYW0m7X3z1-uo -->
 <script type="text/javascript">
- 
-// jsData 
+
+// jsData
 function gvisDataGeoChartID220452ab31f5 () {
 var data = new google.visualization.DataTable();
 var datajson =
@@ -733,7 +736,7 @@ null
 "New Zealand",
 "New Zealand|Total Assault Crimes in 2008=11,948",
 null
-] 
+]
 ];
 data.addColumn('string','Country');
 data.addColumn('string','Total.Assault.in.2008');
@@ -741,7 +744,7 @@ data.addColumn('number','Per.Capita.Assault.in.2008');
 data.addRows(datajson);
 return(data);
 }
- 
+
 // jsDrawChart
 function drawChartGeoChartID220452ab31f5() {
 var data = gvisDataGeoChartID220452ab31f5();
@@ -760,17 +763,17 @@ options["domain"] = "IN";
     document.getElementById('GeoChartID220452ab31f5')
     );
     chart.draw(data,options);
-    
+
 
 }
-  
- 
+
+
 // jsDisplayChart
 (function() {
 var pkgs = window.__gvisPackages = window.__gvisPackages || [];
 var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
 var chartid = "geochart";
-  
+
 // Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
 var i, newPackage = true;
 for (i = 0; newPackage && i < pkgs.length; i++) {
@@ -779,7 +782,7 @@ newPackage = false;
 }
 if (newPackage)
   pkgs.push(chartid);
-  
+
 // Add the drawChart function to the global list of callbacks
 callbacks.push(drawChartGeoChartID220452ab31f5);
 })();
@@ -802,22 +805,22 @@ callbacks.shift()();
 } });
 }, 100);
 }
- 
+
 // jsFooter
 </script>
- 
-<!-- jsChart -->  
+
+<!-- jsChart -->
 <script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID220452ab31f5"></script>
- 
+
 <!-- divChart -->
-  
-<div id="GeoChartID220452ab31f5" 
+
+<div id="GeoChartID220452ab31f5"
   style="width: 1200; height: 680;">
 </div>
- <div><span>Data: MapCountriesGvis &#8226; Chart ID: <a href="Chart_GeoChartID220452ab31f5.html">GeoChartID220452ab31f5</a> &#8226; <a href="https://github.com/mages/googleVis">googleVis-0.6.2</a></span><br /> 
+ <div><span>Data: MapCountriesGvis &#8226; Chart ID: <a href="Chart_GeoChartID220452ab31f5.html">GeoChartID220452ab31f5</a> &#8226; <a href="https://github.com/mages/googleVis">googleVis-0.6.2</a></span><br />
 <!-- htmlFooter -->
-<span> 
-  R version 3.3.1 (2016-06-21) 
+<span>
+  R version 3.3.1 (2016-06-21)
   &#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/geochart">Documentation and Data Policy</a>
 </span></div>
 </body>
