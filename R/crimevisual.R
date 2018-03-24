@@ -12,15 +12,15 @@ library(ggmap)
 ########################################## Importing the database into R
 ########################################## Preprocessing .xlsx files to .csv for easier importing 
 
-WorldAssaultRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Assault.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldHomicideRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Homicide.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Burglary.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldDomBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/DomBurglary.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldKidnapRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/kidnapping.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldSexViolenceRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/TotalSexualCrime.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldVehicleTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/VehicleTheft.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldRobberyRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/robbery.csv", header = TRUE, stringsAsFactors = FALSE)
-WorldTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Theft.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldAssaultRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/Assault.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldHomicideRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/Homicide.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/Burglary.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldDomBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/DomBurglary.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldKidnapRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/kidnapping.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldSexViolenceRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/TotalSexualCrime.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldVehicleTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/VehicleTheft.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldRobberyRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/robbery.csv", header = TRUE, stringsAsFactors = FALSE)
+WorldTheftRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/data/Theft.csv", header = TRUE, stringsAsFactors = FALSE)
 
 ##################################################################################################################
 ########################################## Removing extra data (Data Cleaning)
