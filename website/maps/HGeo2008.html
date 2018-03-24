@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>GeoChartID5a425443a4b</title>
+<title>GeoChartID2204450550dc</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <style type="text/css">
 body {
@@ -18,14 +18,14 @@ body {
 </head>
 <body>
  <!-- GeoChart generated in R 3.3.1 by googleVis 0.6.2 package -->
-<!-- Mon Mar 19 15:25:01 2018 -->
+<!-- Sat Mar 24 20:42:22 2018 -->
 
 
 <!-- jsHeader -->
 <script type="text/javascript">
  
 // jsData 
-function gvisDataGeoChartID5a425443a4b () {
+function gvisDataGeoChartID2204450550dc () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -1228,11 +1228,11 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartGeoChartID5a425443a4b() {
-var data = gvisDataGeoChartID5a425443a4b();
+function drawChartGeoChartID2204450550dc() {
+var data = gvisDataGeoChartID2204450550dc();
 var options = {};
-options["width"] = "1280";
-options["height"] = "720";
+options["width"] = "1200";
+options["height"] = "680";
 options["colorAxis"] = {values:[1, 110],
                                       colors:['brown', 'black']};
 options["backgroundColor"] = "white";
@@ -1241,33 +1241,20 @@ options["defaultColor"] = "lightgrey";
 options["domain"] = "IN";
 
 
-    chartGeoChartID5a425443a4b = new google.visualization.ChartWrapper({
-    dataTable: data,       
-    chartType: 'GeoChart',
-    containerId: 'GeoChartID5a425443a4b',
-    options: options
-    });
-    chartGeoChartID5a425443a4b.draw();
+    var chart = new google.visualization.GeoChart(
+    document.getElementById('GeoChartID2204450550dc')
+    );
+    chart.draw(data,options);
     
 
 }
-
-  function openEditorGeoChartID5a425443a4b() {
-  var editor = new google.visualization.ChartEditor();
-  google.visualization.events.addListener(editor, 'ok',
-  function() { 
-  chartGeoChartID5a425443a4b = editor.getChartWrapper();  
-  chartGeoChartID5a425443a4b.draw(document.getElementById('GeoChartID5a425443a4b')); 
-  }); 
-  editor.openDialog(chartGeoChartID5a425443a4b);
-  }
-    
+  
  
 // jsDisplayChart
 (function() {
 var pkgs = window.__gvisPackages = window.__gvisPackages || [];
 var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
-var chartid = "charteditor";
+var chartid = "geochart";
   
 // Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
 var i, newPackage = true;
@@ -1279,9 +1266,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartGeoChartID5a425443a4b);
+callbacks.push(drawChartGeoChartID2204450550dc);
 })();
-function displayChartGeoChartID5a425443a4b() {
+function displayChartGeoChartID2204450550dc() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -1305,14 +1292,14 @@ callbacks.shift()();
 </script>
  
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID5a425443a4b"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID2204450550dc"></script>
  
 <!-- divChart -->
-<input type='button' onclick='openEditorGeoChartID5a425443a4b()' value='TRUE'/>  
-<div id="GeoChartID5a425443a4b" 
-  style="width: 1280; height: 720;">
+  
+<div id="GeoChartID2204450550dc" 
+  style="width: 1200; height: 680;">
 </div>
- <div><span>Data: MapCountriesGvis &#8226; Chart ID: <a href="Chart_GeoChartID5a425443a4b.html">GeoChartID5a425443a4b</a> &#8226; <a href="https://github.com/mages/googleVis">googleVis-0.6.2</a></span><br /> 
+ <div><span>Data: MapCountriesGvis &#8226; Chart ID: <a href="Chart_GeoChartID2204450550dc.html">GeoChartID2204450550dc</a> &#8226; <a href="https://github.com/mages/googleVis">googleVis-0.6.2</a></span><br /> 
 <!-- htmlFooter -->
 <span> 
   R version 3.3.1 (2016-06-21) 

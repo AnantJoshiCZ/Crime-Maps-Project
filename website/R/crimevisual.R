@@ -1,21 +1,17 @@
-library(ggplot2)
 library(dplyr)
 library(magrittr)
-library(ggmap)
 library(stringr)
 library(sp)
 library(googleVis)
 library(googleway)
-library(plotGoogleMaps)
 library(readxl)
+library(ggmap)
 
 
 ##################################################################################################################
 ########################################## Importing the database into R
 ########################################## Preprocessing .xlsx files to .csv for easier importing 
 
-
-#WorldSexViolenceRate <- read_excel("C:/User/Anant Joshi/Documents/PublicationReports2017_latest.xlsx", sheet = 1, col_names = TRUE)
 WorldAssaultRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Assault.csv", header = TRUE, stringsAsFactors = FALSE)
 WorldHomicideRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Homicide.csv", header = TRUE, stringsAsFactors = FALSE)
 WorldBurglaryRate <- read.csv("C:/Users/Anant Joshi/Documents/CrimeData/website/data/Burglary.csv", header = TRUE, stringsAsFactors = FALSE)
@@ -80,7 +76,6 @@ WorldAssaultRate$Country.territory <- sub("Bolivia Plurinational State of", "Bol
 WorldHomicideRate$Country.territory <- sub("Kosovo under UNSCR 1244", "Kosovo", WorldHomicideRate$Country.territory)
 WorldHomicideRate$Country.territory <- sub("Macao Special Administrative Region of China", "Macao", WorldHomicideRate$Country.territory)
 WorldHomicideRate$Country.territory <- sub("State of Palestine", "Palestine", WorldHomicideRate$Country.territory)
-#WorldHomicideRate$Country.territory <- sub("United Kingdom", "", WorldHomicideRate$Country.territory)
 WorldHomicideRate$Country.territory <- sub("(England and Wales)", "", WorldHomicideRate$Country.territory)
 WorldHomicideRate$Country.territory <- sub("(Northern Ireland)", "Northern Ireland", WorldHomicideRate$Country.territory)
 WorldHomicideRate$Country.territory <- sub("(Scotland)", "Scotland", WorldHomicideRate$Country.territory)
@@ -204,9 +199,9 @@ AGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2008', 
                          hovervar = 'Total Assault in 2008',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -229,9 +224,9 @@ AGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2009', 
                          hovervar = 'Total Assault in 2009',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -254,9 +249,9 @@ AGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2010', 
                          hovervar = 'Total Assault in 2010',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -279,9 +274,9 @@ AGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2011', 
                          hovervar = 'Total Assault in 2011',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -304,9 +299,9 @@ AGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2012', 
                          hovervar = 'Total Assault in 2012',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -329,9 +324,9 @@ AGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2013', 
                          hovervar = 'Total Assault in 2013',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -354,9 +349,9 @@ AGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2014', 
                          hovervar = 'Total Assault in 2014',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -379,9 +374,9 @@ AGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Assault in 2015', 
                          hovervar = 'Total Assault in 2015',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'red', \'black']}"
                                       , backgroundColor = "white"
@@ -407,9 +402,9 @@ SGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2008', 
                          hovervar = 'Total SexViolence in 2008',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -432,9 +427,9 @@ SGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2009', 
                          hovervar = 'Total SexViolence in 2009',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -457,9 +452,9 @@ SGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2010', 
                          hovervar = 'Total SexViolence in 2010',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -482,9 +477,9 @@ SGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2011', 
                          hovervar = 'Total SexViolence in 2011',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -507,9 +502,9 @@ SGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2012', 
                          hovervar = 'Total SexViolence in 2012',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -532,9 +527,9 @@ SGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2013', 
                          hovervar = 'Total SexViolence in 2013',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -557,9 +552,9 @@ SGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2014', 
                          hovervar = 'Total SexViolence in 2014',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -582,9 +577,9 @@ SGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita SexViolence in 2015', 
                          hovervar = 'Total SexViolence in 2015',
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
@@ -611,9 +606,9 @@ BGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2008',
                          hovervar = 'Total Burglary in 2008' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -636,9 +631,9 @@ BGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2009',
                          hovervar = 'Total Burglary in 2009' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -661,9 +656,9 @@ BGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2010',
                          hovervar = 'Total Burglary in 2010' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -686,9 +681,9 @@ BGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2011',
                          hovervar = 'Total Burglary in 2011' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -711,9 +706,9 @@ BGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2012',
                          hovervar = 'Total Burglary in 2012' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -737,9 +732,9 @@ BGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2013',
                          hovervar = 'Total Burglary in 2013' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -763,9 +758,9 @@ BGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2014',
                          hovervar = 'Total Burglary in 2014' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -788,9 +783,9 @@ BGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Burglary in 2015',
                          hovervar = 'Total Burglary in 2015' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 2000],
                                       colors:[\'green', \'black']}"
                                       , backgroundColor = "white"
@@ -817,9 +812,9 @@ KGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2008',
                          hovervar = 'Total Kidnap in 2008' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -842,9 +837,9 @@ KGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2009',
                          hovervar = 'Total Kidnap in 2009' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -867,9 +862,9 @@ KGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2010',
                          hovervar = 'Total Kidnap in 2010' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -892,9 +887,9 @@ KGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2011',
                          hovervar = 'Total Kidnap in 2011' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -917,9 +912,9 @@ KGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2012',
                          hovervar = 'Total Kidnap in 2012' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -943,9 +938,9 @@ KGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2013',
                          hovervar = 'Total Kidnap in 2013' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -970,9 +965,9 @@ KGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2014',
                          hovervar = 'Total Kidnap in 2014' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -995,9 +990,9 @@ KGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Kidnap in 2015',
                          hovervar = 'Total Kidnap in 2015' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 25],
                                       colors:[\'#000080', \'black']}"
                                       , backgroundColor = "white"
@@ -1024,9 +1019,9 @@ HGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2008',
                          hovervar = 'Total Homicide in 2008' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1049,9 +1044,9 @@ HGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2009',
                          hovervar = 'Total Homicide in 2009' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1074,9 +1069,9 @@ HGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2010',
                          hovervar = 'Total Homicide in 2010' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1099,9 +1094,9 @@ HGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2011',
                          hovervar = 'Total Homicide in 2011' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1124,9 +1119,9 @@ HGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2012',
                          hovervar = 'Total Homicide in 2012' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1150,9 +1145,9 @@ HGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2013',
                          hovervar = 'Total Homicide in 2013' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1177,9 +1172,9 @@ HGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2014',
                          hovervar = 'Total Homicide in 2014' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1202,9 +1197,9 @@ HGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Homicide in 2015',
                          hovervar = 'Total Homicide in 2015' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 110],
                                       colors:[\'brown', \'black']}"
                                       , backgroundColor = "white"
@@ -1230,9 +1225,9 @@ TGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2008',
                          hovervar = 'Total Theft in 2008' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1255,9 +1250,9 @@ TGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2009',
                          hovervar = 'Total Theft in 2009' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1280,9 +1275,9 @@ TGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2010',
                          hovervar = 'Total Theft in 2010' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1305,9 +1300,9 @@ TGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2011',
                          hovervar = 'Total Theft in 2011' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1330,9 +1325,9 @@ TGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2012',
                          hovervar = 'Total Theft in 2012' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1356,9 +1351,9 @@ TGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2013',
                          hovervar = 'Total Theft in 2013' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1383,9 +1378,9 @@ TGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2014',
                          hovervar = 'Total Theft in 2014' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1408,9 +1403,9 @@ TGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Theft in 2015',
                          hovervar = 'Total Theft in 2015' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 5000],
                                       colors:[\'indigo', \'black']}"
                                       , backgroundColor = "white"
@@ -1437,9 +1432,9 @@ VTGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2008',
                          hovervar = 'Total VehicleTheft in 2008' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1462,9 +1457,9 @@ VTGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2009',
                          hovervar = 'Total VehicleTheft in 2009' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1487,9 +1482,9 @@ VTGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2010',
                          hovervar = 'Total VehicleTheft in 2010' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1512,9 +1507,9 @@ VTGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2011',
                          hovervar = 'Total VehicleTheft in 2011' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1537,9 +1532,9 @@ VTGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2012',
                          hovervar = 'Total VehicleTheft in 2012' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1563,9 +1558,9 @@ VTGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2013',
                          hovervar = 'Total VehicleTheft in 2013' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1590,9 +1585,9 @@ VTGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2014',
                          hovervar = 'Total VehicleTheft in 2014' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1615,9 +1610,9 @@ VTGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita VehicleTheft in 2015',
                          hovervar = 'Total VehicleTheft in 2015' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1500],
                                       colors:[\'yellow', \'black']}"
                                       , backgroundColor = "white"
@@ -1643,9 +1638,9 @@ RGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2008',
                          hovervar = 'Total Robbery in 2008' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1668,9 +1663,9 @@ RGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2009',
                          hovervar = 'Total Robbery in 2009' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1693,9 +1688,9 @@ RGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2010',
                          hovervar = 'Total Robbery in 2010' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1718,9 +1713,9 @@ RGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2011',
                          hovervar = 'Total Robbery in 2011' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1743,9 +1738,9 @@ RGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2012',
                          hovervar = 'Total Robbery in 2012' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1769,9 +1764,9 @@ RGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2013',
                          hovervar = 'Total Robbery in 2013' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1796,9 +1791,9 @@ RGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2014',
                          hovervar = 'Total Robbery in 2014' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1821,9 +1816,9 @@ RGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita Robbery in 2015',
                          hovervar = 'Total Robbery in 2015' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1200],
                                       colors:[\'cyan', \'black']}"
                                       , backgroundColor = "white"
@@ -1849,9 +1844,9 @@ DBGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2008',
                          hovervar = 'Total DomBurglary in 2008' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -1874,9 +1869,9 @@ DBGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2009',
                          hovervar = 'Total DomBurglary in 2009' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -1899,9 +1894,9 @@ DBGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2010',
                          hovervar = 'Total DomBurglary in 2010' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -1924,9 +1919,9 @@ DBGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2011',
                          hovervar = 'Total DomBurglary in 2011' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -1949,9 +1944,9 @@ DBGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2012',
                          hovervar = 'Total DomBurglary in 2012' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -1975,9 +1970,9 @@ DBGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2013',
                          hovervar = 'Total DomBurglary in 2013' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -2002,9 +1997,9 @@ DBGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2014',
                          hovervar = 'Total DomBurglary in 2014' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -2026,9 +2021,9 @@ DBGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          locationvar = "Country" , 
                          colorvar = 'Per Capita DomBurglary in 2015',
                          hovervar = 'Total DomBurglary in 2015' ,
-                         options=list(width='1280',
-                                      height = '720',
-                                      gvis.editor = TRUE,
+                         options=list(width='1200',
+                                      height = '680',
+                                      #gvis.editor = TRUE,
                                       colorAxis="{values:[1, 1250],
                                       colors:[\'magenta', \'black']}"
                                       , backgroundColor = "white"
@@ -2053,7 +2048,32 @@ print(DBGeo2015, file="DBGeo2015.html")
 
 
 ########################################################################################
-
-
-
-  
+# MapCountriesGvis <- data.frame(WorldSexViolenceRate$Country.territory)
+# colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.Country.territory'] <- 'Country'
+# MapCountriesGvis$`Per Capita SexViolence in 2010` <- WorldSexViolenceRate$X2010.1
+# MapCountriesGvis$`Total SexViolence in 2010`<- WorldSexViolenceRate$X2010
+# string <- "Total SexViolence Crimes in 2010"
+# MapCountriesGvis$`Total SexViolence in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2010`,  sep = "="), sep = "|")
+# MapCountriesGvis$`Per Capita SexViolence in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2010`))
+# MapCountriesGvis <- na.omit(MapCountriesGvis)
+# SGeo2010test <- gvisGeoChart(MapCountriesGvis, 
+#                          locationvar = "Country" , 
+#                          numvar = 'Per Capita SexViolence in 2010', 
+#                          hovervar = 'Total SexViolence in 2010',
+#                          options=list(width='600',
+#                                       height = '400',
+#                                       ##gvis.editor = TRUE,
+#                                       colorAxis="{values:[1, 110],
+#                                       colors:[\'purple', \'black']}"
+#                                       , backgroundColor = "white"
+#                                       , datalessRegionColor = "lightgrey"
+#                                       , defaultColor = "lightgrey"
+#                                       , domain = 'IN'
+#                                       #                                 , region = 154
+#                          ))
+# plot(SGeo2010test)
+# plot(SGeo2010)
+# print(SGeo2010test, file="SGeo2010test.html")
+# 
+# 
+#   
