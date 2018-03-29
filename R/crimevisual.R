@@ -6,7 +6,7 @@ library(googleVis)
 library(googleway)
 library(readxl)
 library(ggmap)
-
+library(highcharter)
 
 ##################################################################################################################
 ########################################## Importing the database into R
@@ -405,7 +405,7 @@ SGeo2008 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -430,7 +430,7 @@ SGeo2009 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -455,7 +455,7 @@ SGeo2010 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -480,7 +480,7 @@ SGeo2011 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -505,7 +505,7 @@ SGeo2012 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -530,7 +530,7 @@ SGeo2013 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -555,7 +555,7 @@ SGeo2014 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -580,7 +580,7 @@ SGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          options=list(width='1200',
                                       height = '680',
                                       #gvis.editor = TRUE,
-                                      colorAxis="{values:[1, 110],
+                                      colorAxis="{values:[1, 220],
                                       colors:[\'purple', \'black']}"
                                       , backgroundColor = "white"
                                       , datalessRegionColor = "lightgrey"
@@ -2046,34 +2046,38 @@ print(DBGeo2015, file="DBGeo2015.html")
 
 ########################################################################################
 
+#HIGHCHARTER EDA
 
+HchartA <- hchart(WorldAssaultRate, type= "scatter", x = "Country.territory", y = "X2010.1")
+hchart(WorldAssaultRate, type= "line", x = "X2010", y = "X2010.1")
 ########################################################################################
-# MapCountriesGvis <- data.frame(WorldSexViolenceRate$Country.territory)
-# colnames(MapCountriesGvis)[colnames(MapCountriesGvis) == 'WorldSexViolenceRate.Country.territory'] <- 'Country'
-# MapCountriesGvis$`Per Capita SexViolence in 2010` <- WorldSexViolenceRate$X2010.1
-# MapCountriesGvis$`Total SexViolence in 2010`<- WorldSexViolenceRate$X2010
-# string <- "Total SexViolence Crimes in 2010"
-# MapCountriesGvis$`Total SexViolence in 2010` <-paste(MapCountriesGvis$Country , paste(string, MapCountriesGvis$`Total SexViolence in 2010`,  sep = "="), sep = "|")
-# MapCountriesGvis$`Per Capita SexViolence in 2010` <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2010`))
-# MapCountriesGvis <- na.omit(MapCountriesGvis)
-# SGeo2010test <- gvisGeoChart(MapCountriesGvis, 
-#                          locationvar = "Country" , 
-#                          numvar = 'Per Capita SexViolence in 2010', 
-#                          hovervar = 'Total SexViolence in 2010',
-#                          options=list(width='600',
-#                                       height = '400',
-#                                       ##gvis.editor = TRUE,
-#                                       colorAxis="{values:[1, 110],
-#                                       colors:[\'purple', \'black']}"
-#                                       , backgroundColor = "white"
-#                                       , datalessRegionColor = "lightgrey"
-#                                       , defaultColor = "lightgrey"
-#                                       , domain = 'IN'
-#                                       #                                 , region = 154
-#                          ))
-# plot(SGeo2010test)
-# plot(SGeo2010)
-# print(SGeo2010test, file="SGeo2010test.html")
-# 
+########################################################################################
+MapCountriesGvisM1 <- data.frame(WorldAssaultRate$Country.territory)
+MapCountriesGvisM1$A <- WorldAssaultRate$X2010.1
+MapCountriesGvisM2 <- data.frame(WorldHomicideRate$Country.territory)
+MapCountriesGvisM2$H <- WorldHomicideRate$X2010.1
+colnames(MapCountriesGvisM2)[colnames(MapCountriesGvisM2) == 'WorldHomicideRate.Country.territory'] <- 'Country'
+colnames(MapCountriesGvisM1)[colnames(MapCountriesGvisM1) == 'WorldAssaultRate.Country.territory'] <- 'Country'
+A1 <- as.data.frame(merge(MapCountriesGvisM1, MapCountriesGvisM2))
+A1$A <- as.numeric(gsub(",","",A1$A))
+A1$H <- as.numeric(gsub(",","",A1$H))
+A1 <- na.omit(A1)
+MapCountriesGvis$`Per Capita SexViolence in 2010` <- WorldSexViolenceRate$X2010.1
+MapCountriesGvis$`Total SexViolence in 2010`<- WorldSexViolenceRate$X2010
+MapCountriesGvis$PS <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2010`))
+MapCountriesGvis$TS <- as.numeric(gsub(",","",MapCountriesGvis$`Total SexViolence in 2010`))
+MapCountriesGvis$`Per Capita SexViolence in 2010` <- NULL
+MapCountriesGvis$`Total SexViolence in 2010` <- NULL
+
+SLine2010 <- gvisBarChart(A1 , options=list(width='1200', height='3000', isStacked = 'absolute'))
+
+plot(SLine2010)
+print(SLine2010, file="SLine2010.html")
+
+df <- data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+
+## Line chart
+Line1 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"))
+plot(Line1)
 # 
 #   
