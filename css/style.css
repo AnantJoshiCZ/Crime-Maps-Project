@@ -253,5 +253,48 @@ body #time-para{
  font: Arial, Helvetica;
  color: lightgrey;
  font-size: 15px;
- border-bottom: black 5px solid;
+
+}
+
+body #time-para img
+{
+  padding-left: 250px;
+}
+body #time-para h6
+{
+  padding-left: 250px;
+  margin-top: -7.5px;
+}
+
+body #barchart1{
+
+  background: rgba(0, 0, 0, 0.5);
+  padding-top: 20px;
+  margin-top: -23px;
+  padding-left: 275px;
+  padding-right: 200px;
+  color: lightgrey;
+  border-bottom: black 5px solid;
+}
+
+body #barchart1 a{
+  color: white;
+}
+
+
+body #BarChartID170856b33a0a{
+  margin-top: -350px;
+  margin-bottom: -320px;
+  overflow: auto;
+  clip-path: inset(350px 0px 350px 0px);
+  height: 1350px;
+  width: 1000px;
+}
+
+body #PieChartID443c3ee33b33
+{
+  padding-left: 0px;
+  margin-top: -100px;
+  margin-bottom: -100px;
+  clip-path: inset(100px 50px 100px 50px);
 }

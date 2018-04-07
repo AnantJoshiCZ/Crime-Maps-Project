@@ -32,10 +32,1562 @@
         <h1> Data Analysis (Time Series Analysis)</h1>
       </div>
       <div id="time-para">
-        <h4> Time Series analysis is ... </h4>
-          <img  src="./img/CRMtimeseries.png" alt="Time Series U.S."width="500" height="250" >
+        <h4> A Time Series is an ordered series of data points over a certain period of time.
+           Data analysis when done over a period of time to analyze a variable is accomplished using Time Series Analysis.
+            It is widely used technique commonly used in the fields of finance, economics and retail. Weather forecasting and
+             earthquake prediction also employ time series analysis to predict the relevant variables. The main use of Time Series
+              Analysis is making short term predictions or forecasts in a time series.
+              <br>
+              <br>
+              We will use the United States national crime data from the same UNODC dataset to make some predictions
+               for crimes in the U.S and some other coutnries.
+            </h4>
+            <h3> <u>Assault</u> </h3>
+          <img src="./img/CRMtimeseries.png" alt="Time Series for Assault crimes U.S."width="600" height="300" >
+          <h6> Figure 1: Time Series of Assault crimes in the United States from 2003 to 2015. </h6>
+
+        <h4> The ACF and PACF functions can be used to find values p and q for the ARIMA(p,d,q) model.
+          he acf() and pacf() functions are used to find the value of p and q for the Assault time series. We can also use the auto.arima() function which gives the best fit values for p and q automatically.
+           The value of p is found to be 3 and the value of q is found to be 0. Thus, the ARIMA(3,1,1) model is used for TSA.
+         </h4>
+         <img src="./img/CRMasltarima.png" alt="ARIMA forecast for Assault Crimes" width="600" height="325">
+         <h6> Figure 2: Assault forecast using ARIMA (3,1,1) model </h6>
+         <h3> <u>Theft</u> </h3>
+         <img src="./img/CRMthft_ts.png" alt="Time Series for Theft Crimes" width="600" height="325">
+         <h6> Figure 3: Time Series of Theft crimes in the United States from 2003 to 2015. </h6>
+         <h4>The same process is used on this dataset to find the correct ARIMA model.
+           Using ACF and PACF, we find that the best model for the theft time series is the ARIMA(2,0,1) model.
+         </h4>
+         <img src="./img/CRMthft_arima.png" alt="ARIMA forecast for Theft Crimes" width="600" height="325">
+         <h6> Figure 4: Theft forecast using ARIMA (2,0,1) model </h6>
+         <h3> <u>Kidnapping</u> </h3>
+         <img src="./img/kidnapts.png" alt="Time Series for Kidnapping Crimes" width="600" height="325">
+         <h6> Figure 3: Time Series of Kidnapping crimes in the England from 2003 to 2015. </h6>
+         <h4>The same process is used on this dataset to find the correct ARIMA model.
+           Using ACF and PACF, we find that the best model for the Kidnapping time series is the ARIMA(1,1,1) model.
+         </h4>
+         <img src="./img/kidnapforecast.png" alt="ARIMA forecast for Kidnapping Crimes" width="600" height="325">
+         <h6> Figure 3: Kidnapping crime forecast using ARIMA (1,1,1) model </h6>
+
       </div>
 
+
+      <div id="barchart1">
+        <h2> Other Analysis and Visualizations </h2>
+        <h4> We have also used a bar chart to show the comparison between the Assaulta and Homicide crime rates of countries. This visualization
+          is for the 2010 which had the most data available. <a href="SBar2010.html">Click here to see the full page version of this chart. </a>
+        </h4>
+        <!-- BarChart generated in R 3.3.1 by googleVis 0.6.2 package -->
+<!-- Tue Apr 03 13:03:06 2018 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+
+
+// jsData
+function gvisDataBarChartID170856b33a0a () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+[
+"Albania",
+6.13,
+4.38
+],
+[
+"Andorra",
+116.09,
+1.18
+],
+[
+"Armenia",
+5.23,
+1.89
+],
+[
+"Australia",
+309.82,
+1.04
+],
+[
+"Austria",
+42.97,
+0.69
+],
+[
+"Azerbaijan",
+1.89,
+2.13
+],
+[
+"Bahamas",
+848.88,
+26.05
+],
+[
+"Barbados",
+540.48,
+11.09
+],
+[
+"Belarus",
+12.2,
+5.12
+],
+[
+"Bermuda",
+964.76,
+10.95
+],
+[
+"Bhutan",
+9.3,
+1.94
+],
+[
+"Bolivia",
+85.21,
+10.61
+],
+[
+"Botswana",
+852.46,
+14.8
+],
+[
+"Brazil",
+360.35,
+21.79
+],
+[
+"Bulgaria",
+41.01,
+2
+],
+[
+"Burundi",
+3.21,
+3.67
+],
+[
+"Cabo Verde",
+834.05,
+7.95
+],
+[
+"Canada",
+162.44,
+1.62
+],
+[
+"Chile",
+130.82,
+3.18
+],
+[
+"Colombia",
+115.73,
+32.7
+],
+[
+"Costa Rica",
+174.97,
+11.59
+],
+[
+"Croatia",
+22.84,
+1.44
+],
+[
+"Cyprus",
+15.67,
+0.72
+],
+[
+"Denmark",
+31.58,
+0.76
+],
+[
+"Ecuador",
+30.16,
+17.66
+],
+[
+"Egypt",
+0.19,
+2.24
+],
+[
+"Estonia",
+7.73,
+5.25
+],
+[
+"Georgia",
+2.96,
+4.4
+],
+[
+"Grenada",
+1100.53,
+9.55
+],
+[
+"Guatemala",
+50.58,
+40.46
+],
+[
+"Hungary",
+145.48,
+1.38
+],
+[
+"Iceland",
+17.92,
+0.63
+],
+[
+"India",
+23.48,
+3.44
+],
+[
+"Iraq Central Iraq",
+98.3,
+9.71
+],
+[
+"Ireland",
+325.69,
+1.15
+],
+[
+"Israel",
+620.01,
+1.95
+],
+[
+"Italy",
+108.86,
+0.89
+],
+[
+"Japan",
+20.93,
+0.37
+],
+[
+"Kenya",
+34.91,
+5.55
+],
+[
+"Kyrgyzstan",
+9.81,
+19.62
+],
+[
+"Lebanon",
+218.95,
+3.76
+],
+[
+"Liechtenstein",
+212.26,
+2.77
+],
+[
+"Lithuania",
+7.85,
+7.01
+],
+[
+"Luxembourg",
+487.31,
+1.97
+],
+[
+"Madagascar",
+16.37,
+0.62
+],
+[
+"Maldives",
+444.41,
+1.8
+],
+[
+"Mauritius",
+19.07,
+2.64
+],
+[
+"Mongolia",
+214.59,
+8.81
+],
+[
+"Myanmar",
+5.18,
+1.55
+],
+[
+"Nicaragua",
+319.73,
+13.68
+],
+[
+"Nigeria",
+11.35,
+10.66
+],
+[
+"Panama",
+167.38,
+20.96
+],
+[
+"Paraguay",
+31.35,
+11.93
+],
+[
+"Peru",
+64.86,
+9.22
+],
+[
+"Poland",
+28.54,
+1.13
+],
+[
+"Portugal",
+8.15,
+1.17
+],
+[
+"Puerto Rico",
+73.16,
+26.34
+],
+[
+"Russian Federation",
+21.24,
+15.99
+],
+[
+"Rwanda",
+19.47,
+4.86
+],
+[
+"Senegal",
+2.35,
+8.48
+],
+[
+"Serbia",
+15.35,
+1.44
+],
+[
+"Singapore",
+8.45,
+0.37
+],
+[
+"Slovakia",
+44.87,
+1.65
+],
+[
+"Slovenia",
+106.31,
+0.73
+],
+[
+"Sweden",
+59.62,
+0.97
+],
+[
+"Tajikistan",
+72.41,
+2.04
+],
+[
+"Trinidad and Tobago",
+46.38,
+35.61
+],
+[
+"Turkey",
+305.46,
+4.24
+],
+[
+"Uganda",
+69.32,
+9.53
+],
+[
+"Ukraine",
+8.83,
+4.36
+],
+[
+"United States of America",
+252.31,
+4.75
+],
+[
+"Uruguay",
+15.38,
+6.08
+]
+];
+data.addColumn('string','Country');
+data.addColumn('number','Assault');
+data.addColumn('number','Homicide');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartBarChartID170856b33a0a() {
+var data = gvisDataBarChartID170856b33a0a();
+var options = {};
+options["allowHtml"] = true;
+options["width"] = "1000";
+options["height"] = "2500";
+options["isStacked"] = "absolute";
+
+
+  var chart = new google.visualization.BarChart(
+  document.getElementById('BarChartID170856b33a0a')
+  );
+  chart.draw(data,options);
+
+
+}
+
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+pkgs.push(chartid);
+
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartBarChartID170856b33a0a);
+})();
+function displayChartBarChartID170856b33a0a() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+window.clearTimeout(window.__gvisLoad);
+// The timeout is set to 100 because otherwise the container div we are
+// targeting might not be part of the document yet
+window.__gvisLoad = setTimeout(function() {
+var pkgCount = pkgs.length;
+google.load("visualization", "1", { packages:pkgs, callback: function() {
+if (pkgCount != pkgs.length) {
+// Race condition where another setTimeout call snuck in after us; if
+// that call added a package, we must not shift its callback
+return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsFooter
+</script>
+
+
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID170856b33a0a"></script>
+
+
+<!-- divChart -->
+
+<div id="BarChartID170856b33a0a"
+style="width: 800; height: 2100;">
+</div>
+<h6> Figure 4: Interactive bar chart showing the rates of Assault and Homicide (stacked) in 2010. </h6>
+<h4> This pie chart shows the percentage of worlds crime by country. </h4>
+<!-- PieChart generated in R 3.3.1 by googleVis 0.6.2 package -->
+<!-- Tue Apr 03 14:00:38 2018 -->
+
+
+<!-- PieChart generated in R 3.3.1 by googleVis 0.6.2 package -->
+<!-- Sat Apr 07 20:17:06 2018 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+
+
+// jsData
+function gvisDataPieChartID443c3ee33b33 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Burundi",
+347
+],
+[
+"Comoros",
+59
+],
+[
+"Djibouti",
+63
+],
+[
+"Eritrea",
+389
+],
+[
+"Ethiopia",
+7419
+],
+[
+"Kenya",
+2239
+],
+[
+"Madagascar",
+130
+],
+[
+"Malawi",
+520
+],
+[
+"Mauritius",
+33
+],
+[
+"Mayotte",
+null
+],
+[
+"Mozambique",
+875
+],
+[
+"R�union",
+null
+],
+[
+"Rwanda",
+500
+],
+[
+"Seychelles",
+2
+],
+[
+"Somalia",
+636
+],
+[
+"Uganda",
+3160
+],
+[
+"United Republic of Tanzania",
+3888
+],
+[
+"Zambia",
+814
+],
+[
+"Zimbabwe",
+711
+],
+[
+"Angola",
+2227
+],
+[
+"Cameroon",
+999
+],
+[
+"Central African Republic",
+606
+],
+[
+"Chad",
+1151
+],
+[
+"Congo",
+433
+],
+[
+"Democratic Republic of the Congo",
+9213
+],
+[
+"Equatorial Guinea",
+25
+],
+[
+"Gabon",
+143
+],
+[
+"Sao Tome and Principe",
+6
+],
+[
+"Algeria",
+254
+],
+[
+"Egypt",
+1839
+],
+[
+"Libya",
+192
+],
+[
+"Morocco",
+451
+],
+[
+"South Sudan",
+null
+],
+[
+"Sudan",
+2454
+],
+[
+"Tunisia",
+286
+],
+[
+"Botswana",
+303
+],
+[
+"Lesotho",
+764
+],
+[
+"Namibia",
+314
+],
+[
+"South Africa",
+15940
+],
+[
+"Swaziland",
+208
+],
+[
+"Benin",
+604
+],
+[
+"Burkina Faso",
+91
+],
+[
+"Cabo Verde",
+39
+],
+[
+"C�te d'Ivoire",
+2576
+],
+[
+"Gambia",
+166
+],
+[
+"Ghana",
+422
+],
+[
+"Guinea",
+1019
+],
+[
+"Guinea-Bissau",
+163
+],
+[
+"Liberia",
+129
+],
+[
+"Mali",
+1836
+],
+[
+"Mauritania",
+392
+],
+[
+"Niger",
+null
+],
+[
+"Nigeria",
+16996
+],
+[
+"Senegal",
+1099
+],
+[
+"Sierra Leone",
+163
+],
+[
+"Togo",
+625
+],
+[
+"Anguilla",
+null
+],
+[
+"Antigua and Barbuda",
+6
+],
+[
+"Aruba",
+4
+],
+[
+"Bahamas",
+94
+],
+[
+"Barbados",
+31
+],
+[
+"British Virgin Islands",
+null
+],
+[
+"Cayman Islands",
+null
+],
+[
+"Cuba",
+505
+],
+[
+"Dominica",
+15
+],
+[
+"Dominican Republic",
+2474
+],
+[
+"Grenada",
+10
+],
+[
+"Guadeloupe",
+null
+],
+[
+"Haiti",
+677
+],
+[
+"Jamaica",
+1447
+],
+[
+"Martinique",
+null
+],
+[
+"Montserrat",
+null
+],
+[
+"Puerto Rico",
+977
+],
+[
+"Saint Kitts and Nevis",
+21
+],
+[
+"Saint Lucia",
+44
+],
+[
+"Saint Vincent and the Grenadines",
+25
+],
+[
+"Trinidad and Tobago",
+473
+],
+[
+"Turks and Caicos Islands",
+null
+],
+[
+"United States Virgin Islands",
+56
+],
+[
+"Bermuda",
+7
+],
+[
+"Canada",
+554
+],
+[
+"Greenland",
+18
+],
+[
+"Saint Pierre and Miquelon",
+null
+],
+[
+"United States of America",
+14722
+],
+[
+"Argentina",
+null
+],
+[
+"Bolivia",
+1052
+],
+[
+"Brazil",
+43272
+],
+[
+"Chile",
+541
+],
+[
+"Colombia",
+15013
+],
+[
+"Ecuador",
+2638
+],
+[
+"French Guiana",
+null
+],
+[
+"Guyana",
+140
+],
+[
+"Paraguay",
+741
+],
+[
+"Peru",
+2709
+],
+[
+"Suriname",
+49
+],
+[
+"Uruguay",
+205
+],
+[
+"Venezuela Bolivarian Republic of",
+13080
+],
+[
+"Belize",
+129
+],
+[
+"Costa Rica",
+527
+],
+[
+"El Salvador",
+3987
+],
+[
+"Guatemala",
+5960
+],
+[
+"Honduras",
+6236
+],
+[
+"Mexico",
+25757
+],
+[
+"Nicaragua",
+785
+],
+[
+"Panama",
+759
+],
+[
+"Kyrgyzstan",
+1072
+],
+[
+"Tajikistan",
+155
+],
+[
+"Turkmenistan",
+229
+],
+[
+"Uzbekistan",
+894
+],
+[
+"Kazakhstan*",
+1397
+],
+[
+"China",
+13410
+],
+[
+"China, Hong Kong Special Administrative Region",
+35
+],
+[
+"China, Macao Special Administrative Region",
+2
+],
+[
+"Democratic People's Republic of Korea",
+1179
+],
+[
+"Japan",
+465
+],
+[
+"Mongolia",
+239
+],
+[
+"Republic of Korea",
+null
+],
+[
+"Taiwan Province of China",
+179
+],
+[
+"Brunei Darussalam",
+1
+],
+[
+"Cambodia",
+331
+],
+[
+"Indonesia",
+1058
+],
+[
+"Lao People's Democratic Republic",
+502
+],
+[
+"Malaysia",
+540
+],
+[
+"Myanmar",
+801
+],
+[
+"Singapore",
+19
+],
+[
+"Thailand",
+3654
+],
+[
+"Timor-Leste",
+39
+],
+[
+"Viet Nam",
+1336
+],
+[
+"Philippines*",
+8897
+],
+[
+"Afghanistan",
+983
+],
+[
+"Bangladesh",
+3988
+],
+[
+"Bhutan",
+14
+],
+[
+"India",
+42299
+],
+[
+"Iran Islamic Republic of",
+3873
+],
+[
+"Maldives",
+6
+],
+[
+"Nepal",
+813
+],
+[
+"Pakistan",
+13208
+],
+[
+"Sri Lanka*",
+763
+],
+[
+"Armenia",
+56
+],
+[
+"Azerbaijan",
+194
+],
+[
+"Bahrain",
+11
+],
+[
+"Cyprus",
+8
+],
+[
+"Georgia",
+187
+],
+[
+"Iraq",
+null
+],
+[
+"Iraq Central Iraq",
+2553
+],
+[
+"Iraq Kurdistan Region",
+205
+],
+[
+"Israel",
+145
+],
+[
+"Jordan",
+116
+],
+[
+"Kuwait",
+60
+],
+[
+"Lebanon",
+163
+],
+[
+"Oman",
+null
+],
+[
+"Qatar",
+122
+],
+[
+"Saudi Arabia",
+null
+],
+[
+"Palestine",
+30
+],
+[
+"Syrian Arab Republic",
+463
+],
+[
+"Turkey",
+3064
+],
+[
+"United Arab Emirates",
+67
+],
+[
+"Yemen",
+1099
+],
+[
+"Belarus",
+486
+],
+[
+"Bulgaria",
+148
+],
+[
+"Czechia",
+103
+],
+[
+"Hungary",
+138
+],
+[
+"Poland",
+436
+],
+[
+"Republic of Moldova",
+267
+],
+[
+"Russian Federation",
+22897
+],
+[
+"Slovakia",
+89
+],
+[
+"Ukraine",
+1988
+],
+[
+"Romania***",
+404
+],
+[
+"Denmark",
+42
+],
+[
+"Estonia",
+70
+],
+[
+"Finland",
+119
+],
+[
+"Iceland",
+2
+],
+[
+"Ireland",
+53
+],
+[
+"Latvia",
+70
+],
+[
+"Lithuania",
+219
+],
+[
+"Norway",
+29
+],
+[
+"Sweden",
+91
+],
+[
+"United Kingdom of Great Britain and Northern Ireland",
+753
+],
+[
+"Albania",
+127
+],
+[
+"Andorra",
+1
+],
+[
+"Bosnia and Herzegovina",
+56
+],
+[
+"Croatia",
+62
+],
+[
+"Greece",
+176
+],
+[
+"Italy",
+529
+],
+[
+"Kosovo in compliance with UN Security Council Resolution 1244/99",
+106
+],
+[
+"Malta",
+4
+],
+[
+"Montenegro",
+15
+],
+[
+"Portugal",
+124
+],
+[
+"San Marino",
+null
+],
+[
+"Serbia",
+130
+],
+[
+"Slovenia",
+15
+],
+[
+"Spain",
+401
+],
+[
+"The former Yugoslav Republic of Macedonia",
+43
+],
+[
+"Austria",
+58
+],
+[
+"France",
+796
+],
+[
+"Germany",
+793
+],
+[
+"Liechtenstein",
+1
+],
+[
+"Luxembourg",
+10
+],
+[
+"Monaco",
+null
+],
+[
+"Netherlands",
+144
+],
+[
+"Switzerland",
+52
+],
+[
+"Belgium***",
+189
+],
+[
+"Fiji",
+24
+],
+[
+"New Caledonia",
+null
+],
+[
+"Papua New Guinea",
+713
+],
+[
+"Solomon Islands",
+null
+],
+[
+"Vanuatu",
+5
+],
+[
+"Guam",
+3
+],
+[
+"Kiribati",
+4
+],
+[
+"Marshall Islands",
+null
+],
+[
+"Micronesia Federated States of",
+5
+],
+[
+"Nauru",
+null
+],
+[
+"Palau",
+null
+],
+[
+"Cook Islands",
+null
+],
+[
+"French Polynesia",
+null
+],
+[
+"Niue",
+null
+],
+[
+"Samoa",
+16
+],
+[
+"Tonga",
+1
+],
+[
+"Tuvalu",
+1
+],
+[
+"Australia",
+231
+],
+[
+"New Zealand****",
+43
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+],
+[
+"",
+null
+]
+];
+data.addColumn('string','WorldHomicideRate.Country.territory');
+data.addColumn('number','Homicide');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartPieChartID443c3ee33b33() {
+var data = gvisDataPieChartID443c3ee33b33();
+var options = {};
+options["allowHtml"] = true;
+options["width"] = "800";
+options["height"] = "600";
+
+
+    var chart = new google.visualization.PieChart(
+    document.getElementById('PieChartID443c3ee33b33')
+    );
+    chart.draw(data,options);
+
+
+}
+
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartPieChartID443c3ee33b33);
+})();
+function displayChartPieChartID443c3ee33b33() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsFooter
+</script>
+
+
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartPieChartID443c3ee33b33"></script>
+
+
+<!-- divChart -->
+
+<div id="PieChartID443c3ee33b33"
+  style="width: 600; height: 600;">
+</div>
+
+
+<h6> Figure 5: Interactive pie chart showing the total instances of Homicides in the world in 2010. Percentage represents the percentage of total homicides in the world. </h6>
+
+
+
+      </div>
     </div>
 
   </body>

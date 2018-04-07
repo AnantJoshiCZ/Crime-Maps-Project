@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>BarChartID1708504278ac</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+body {
+  color: #444444;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 75%;
+  }
+  a {
+  color: #4D87C7;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+ <!-- BarChart generated in R 3.3.1 by googleVis 0.6.2 package -->
+<!-- Tue Apr 03 20:15:05 2018 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataBarChartID1708504278ac () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Albania",
+6.13,
+4.38
+],
+[
+"Andorra",
+116.09,
+1.18
+],
+[
+"Armenia",
+5.23,
+1.89
+],
+[
+"Australia",
+309.82,
+1.04
+],
+[
+"Austria",
+42.97,
+0.69
+],
+[
+"Azerbaijan",
+1.89,
+2.13
+],
+[
+"Bahamas",
+848.88,
+26.05
+],
+[
+"Barbados",
+540.48,
+11.09
+],
+[
+"Belarus",
+12.2,
+5.12
+],
+[
+"Bermuda",
+964.76,
+10.95
+],
+[
+"Bhutan",
+9.3,
+1.94
+],
+[
+"Bolivia",
+85.21,
+10.61
+],
+[
+"Botswana",
+852.46,
+14.8
+],
+[
+"Brazil",
+360.35,
+21.79
+],
+[
+"Bulgaria",
+41.01,
+2
+],
+[
+"Burundi",
+3.21,
+3.67
+],
+[
+"Cabo Verde",
+834.05,
+7.95
+],
+[
+"Canada",
+162.44,
+1.62
+],
+[
+"Chile",
+130.82,
+3.18
+],
+[
+"Colombia",
+115.73,
+32.7
+],
+[
+"Costa Rica",
+174.97,
+11.59
+],
+[
+"Croatia",
+22.84,
+1.44
+],
+[
+"Cyprus",
+15.67,
+0.72
+],
+[
+"Denmark",
+31.58,
+0.76
+],
+[
+"Ecuador",
+30.16,
+17.66
+],
+[
+"Egypt",
+0.19,
+2.24
+],
+[
+"Estonia",
+7.73,
+5.25
+],
+[
+"Georgia",
+2.96,
+4.4
+],
+[
+"Grenada",
+1100.53,
+9.55
+],
+[
+"Guatemala",
+50.58,
+40.46
+],
+[
+"Hungary",
+145.48,
+1.38
+],
+[
+"Iceland",
+17.92,
+0.63
+],
+[
+"India",
+23.48,
+3.44
+],
+[
+"Iraq Central Iraq",
+98.3,
+9.71
+],
+[
+"Ireland",
+325.69,
+1.15
+],
+[
+"Israel",
+620.01,
+1.95
+],
+[
+"Italy",
+108.86,
+0.89
+],
+[
+"Japan",
+20.93,
+0.37
+],
+[
+"Kenya",
+34.91,
+5.55
+],
+[
+"Kyrgyzstan",
+9.81,
+19.62
+],
+[
+"Lebanon",
+218.95,
+3.76
+],
+[
+"Liechtenstein",
+212.26,
+2.77
+],
+[
+"Lithuania",
+7.85,
+7.01
+],
+[
+"Luxembourg",
+487.31,
+1.97
+],
+[
+"Madagascar",
+16.37,
+0.62
+],
+[
+"Maldives",
+444.41,
+1.8
+],
+[
+"Mauritius",
+19.07,
+2.64
+],
+[
+"Mongolia",
+214.59,
+8.81
+],
+[
+"Myanmar",
+5.18,
+1.55
+],
+[
+"Nicaragua",
+319.73,
+13.68
+],
+[
+"Nigeria",
+11.35,
+10.66
+],
+[
+"Panama",
+167.38,
+20.96
+],
+[
+"Paraguay",
+31.35,
+11.93
+],
+[
+"Peru",
+64.86,
+9.22
+],
+[
+"Poland",
+28.54,
+1.13
+],
+[
+"Portugal",
+8.15,
+1.17
+],
+[
+"Puerto Rico",
+73.16,
+26.34
+],
+[
+"Russian Federation",
+21.24,
+15.99
+],
+[
+"Rwanda",
+19.47,
+4.86
+],
+[
+"Senegal",
+2.35,
+8.48
+],
+[
+"Serbia",
+15.35,
+1.44
+],
+[
+"Singapore",
+8.45,
+0.37
+],
+[
+"Slovakia",
+44.87,
+1.65
+],
+[
+"Slovenia",
+106.31,
+0.73
+],
+[
+"Sweden",
+59.62,
+0.97
+],
+[
+"Tajikistan",
+72.41,
+2.04
+],
+[
+"Trinidad and Tobago",
+46.38,
+35.61
+],
+[
+"Turkey",
+305.46,
+4.24
+],
+[
+"Uganda",
+69.32,
+9.53
+],
+[
+"Ukraine",
+8.83,
+4.36
+],
+[
+"United States of America",
+252.31,
+4.75
+],
+[
+"Uruguay",
+15.38,
+6.08
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Assault');
+data.addColumn('number','Homicide');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartBarChartID1708504278ac() {
+var data = gvisDataBarChartID1708504278ac();
+var options = {};
+options["allowHtml"] = true;
+options["width"] = "1500";
+options["height"] = "2000";
+options["isStacked"] = "absolute";
+
+
+    var chart = new google.visualization.BarChart(
+    document.getElementById('BarChartID1708504278ac')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "corechart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartBarChartID1708504278ac);
+})();
+function displayChartBarChartID1708504278ac() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartBarChartID1708504278ac"></script>
+ 
+<!-- divChart -->
+  
+<div id="BarChartID1708504278ac" 
+  style="width: 1500; height: 2000;">
+</div>
+ <div><span>Data: data &#8226; Chart ID: <a href="Chart_BarChartID1708504278ac.html">BarChartID1708504278ac</a> &#8226; <a href="https://github.com/mages/googleVis">googleVis-0.6.2</a></span><br /> 
+<!-- htmlFooter -->
+<span> 
+  R version 3.3.1 (2016-06-21) 
+  &#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/barchart">Documentation and Data Policy</a>
+</span></div>
+</body>
+</html>
