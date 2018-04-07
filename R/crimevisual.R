@@ -2034,50 +2034,32 @@ DBGeo2015 <- gvisGeoChart(MapCountriesGvis,
                          ))
 plot(DBGeo2015)
 print(DBGeo2015, file="DBGeo2015.html")
-########################################################################################
 
-#for(i in 1:nrow(origAddress))
-#{
-# result <- geocode(MapCountries$[i], output = "latlona", source = "google")
-# origAddress$lon[i] <- as.numeric(result[1])
-# origAddress$lat[i] <- as.numeric(result[2])
-# origAddress$geoAddress[i] <- as.character(result[3])
-#}
 
 ########################################################################################
-
-#HIGHCHARTER EDA
-
-HchartA <- hchart(WorldAssaultRate, type= "scatter", x = "Country.territory", y = "X2010.1")
-hchart(WorldAssaultRate, type= "line", x = "X2010", y = "X2010.1")
-########################################################################################
+################################OTHER VISUALIZATIONS (BARCHART AND PIECHART)
 ########################################################################################
 MapCountriesGvisM1 <- data.frame(WorldAssaultRate$Country.territory)
-MapCountriesGvisM1$A <- WorldAssaultRate$X2010.1
+MapCountriesGvisM1$Assault <- WorldAssaultRate$X2010.1
 MapCountriesGvisM2 <- data.frame(WorldHomicideRate$Country.territory)
-MapCountriesGvisM2$H <- WorldHomicideRate$X2010.1
+MapCountriesGvisM2$Homicide <- WorldHomicideRate$X2010.1
 colnames(MapCountriesGvisM2)[colnames(MapCountriesGvisM2) == 'WorldHomicideRate.Country.territory'] <- 'Country'
 colnames(MapCountriesGvisM1)[colnames(MapCountriesGvisM1) == 'WorldAssaultRate.Country.territory'] <- 'Country'
 A1 <- as.data.frame(merge(MapCountriesGvisM1, MapCountriesGvisM2))
-A1$A <- as.numeric(gsub(",","",A1$A))
-A1$H <- as.numeric(gsub(",","",A1$H))
+A1$Assault <- as.numeric(gsub(",","",A1$Assault))
+A1$Homicide <- as.numeric(gsub(",","",A1$Homicide))
 A1 <- na.omit(A1)
-MapCountriesGvis$`Per Capita SexViolence in 2010` <- WorldSexViolenceRate$X2010.1
-MapCountriesGvis$`Total SexViolence in 2010`<- WorldSexViolenceRate$X2010
-MapCountriesGvis$PS <- as.numeric(gsub(",","",MapCountriesGvis$`Per Capita SexViolence in 2010`))
-MapCountriesGvis$TS <- as.numeric(gsub(",","",MapCountriesGvis$`Total SexViolence in 2010`))
-MapCountriesGvis$`Per Capita SexViolence in 2010` <- NULL
-MapCountriesGvis$`Total SexViolence in 2010` <- NULL
 
-SLine2010 <- gvisBarChart(A1 , options=list(width='1200', height='3000', isStacked = 'absolute'))
 
-plot(SLine2010)
-print(SLine2010, file="SLine2010.html")
+SBar2010 <- gvisBarChart(A1 , options=list(width='1500', height='2000', isStacked = 'absolute'))
+plot(SBar2010)
+print(SBar2010, file="SBar2010.html")
 
-df <- data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+MapCountriesGvis <- data.frame(WorldHomicideRate$Country.territory)
+MapCountriesGvis$Homicide <- WorldHomicideRate$X2010
+MapCountriesGvis$Homicide <- as.numeric(gsub(",","",MapCountriesGvis$Homicide))
+SPie2010 <- gvisPieChart(MapCountriesGvis , options=list(width='1000', height='650'))
+plot(SPie2010)
+print(SPie2010, file="SPie2010.html")
 
-## Line chart
-Line1 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"))
-plot(Line1)
-# 
-#   
+#########################################################################################
